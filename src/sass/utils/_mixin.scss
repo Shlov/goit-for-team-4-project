@@ -1,0 +1,72 @@
+@mixin card-set($card-gap: 32px) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $card-gap;
+}
+
+@mixin card-item ($card-item: 1, $card-gap: 32px) {
+    flex-basis: calc((100% - #{$card-gap} * (#{$card-item} - 1)) / #{$card-item});
+}
+
+@mixin fonts($fs: 14px, $fw: 400, $lh: 1.5) {
+    font-size: $fs;
+    font-weight: $fw;
+    line-height: $lh;
+    
+}
+
+@mixin section ($pt: 100px, $pb: 100px) {
+    padding-top: $pt;
+    padding-bottom: $pb;
+}
+
+
+@mixin centered-flex() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@mixin mq($range) {
+    $mob: 480px;
+    $tab: 768px;
+    $desk: 1280px;
+
+    @if $range==mob {
+        @media screen and (min-width: $mob) {
+            @content;
+        }
+    }
+
+    @if $range==tab {
+        @media screen and (min-width: $tab) {
+            @content;
+        }
+    }
+
+    @if $range==desk {
+        @media screen and (min-width: $desk) {
+            @content;
+        }
+    }
+
+    @if $range==noDesk {
+        @media (max-width:#{$desk - 0.02}) {
+            @content;
+        }
+    }
+
+    @if $range==tab-only {
+        @media (min-width:$tab) and (max-width:#{$desk - 0.02}) {
+            @content;
+        }
+    }
+
+    @if $range==mob-only {
+        @media (max-width:#{$tab - 0.02}) {
+            @content;
+        }
+    }
+
+}

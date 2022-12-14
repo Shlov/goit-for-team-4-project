@@ -1,0 +1,23 @@
+// utils
+@import './utils/modern-normalize';
+@import './utils/variables';
+@import './utils/mixin';
+
+// base
+@import './base/common';
+@import './base/reset';
+
+// components
+@import './components/container';
+@import './components/section';
+@import './components/button';
+@import './components/modal';
+
+// layout
+@import './layout/film-card';
+@import './layout/film-index';
+@import './layout/footer';
+@import './layout/for-team';
+@import './layout/header-home';
+@import './layout/header-library';
+

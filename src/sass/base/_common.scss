@@ -1,0 +1,11 @@
+body {
+    color: var(--cl-almost-black);
+    font-family: var(--main-font);
+    // @include fonts(14px, 400, 16px);
+    // @include mq(tab) {
+    //     @include fonts(16px, 400, 19px);
+    // }
+    // @include mq(desk) {
+    //     @include fonts(16px, 400, 1.5);
+    // }
+}

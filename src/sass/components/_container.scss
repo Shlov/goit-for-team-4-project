@@ -1,0 +1,29 @@
+.container {
+    width: 100%;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+    
+    
+    @include mq(mob) {
+        width: 480px;    
+    }
+    @include mq(mob-only)
+    {
+        padding-top: 20px;
+    }
+
+    @include mq(tab) {
+        width: 768px;
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+
+    @include mq(desk) {
+        width: 1280px;
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+}
