@@ -1,1 +1,34 @@
-<h2>Header</h2>
+<!-- <h2>Header</h2> -->
+
+<header class="header">
+  <div class="header__container">
+    <a class="logo lnk" href="./index.html">
+      <img src="./images/icon-site.png" alt="Logo" width="24" height="24"
+    /></a>
+
+    <nav class="nav">
+      <ul class="nav__list">
+        <li class="nav__item lst">
+          <a class="nav__link nav__link--current lnk" href="./index.html"
+            >Home</a
+          >
+        </li>
+        <li class="nav__item lst">
+          <a class="nav__link lnk" href="./library.html">My library</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <div class="header__form">
+    <form class="header__search-form" id="header-form">
+      <input
+        class="input-form"
+        type="text"
+        name="searchQuery"
+        autocomplete="off"
+        placeholder="Movie search"
+      />
+      <button class="button-form" type="submit">Search</button>
+    </form>
+  </div>
+</header>
