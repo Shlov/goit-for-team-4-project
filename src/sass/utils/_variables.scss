@@ -1,13 +1,16 @@
 :root {
-    /* colors */
-    --cl-white: #FFFFFF;
-    --cl-almost-white: #FEFEFE;
-    --cl-black: #000000;
-    
-    /* fonts */
-    --main-font: 'Roboto', sans-serif;
-    /* size */
-    
-    /* animat */
-    --animat: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  /* colors */
+  --cl-white: #ffffff;
+  --cl-almost-white: #fefefe;
+  --cl-black: #000000;
+  --cl-txt: #8c8c8c;
+  --cl-secondary: #f7f7f7;
+  --cl-accent: #ff6b01;
+
+  /* fonts */
+  --main-font: 'Roboto', sans-serif;
+  /* size */
+
+  /* animat */
+  --animat: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }

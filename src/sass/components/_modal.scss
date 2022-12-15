@@ -1,0 +1,170 @@
+/* Modal window */
+
+.modal-backdrop {
+  position: fixed;
+  overflow-y: scroll;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+  opacity: 1;
+  transition-property: opacity;
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.modal-window {
+  position: relative;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 48px 20px 40px 20px;
+  width: 280px;
+  background-color: #ffffff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
+    0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  @include mq('tab') {
+    display: flex;
+    top: 50%;
+    width: 704px;
+    height: 552px;
+    padding: 40px 72px 40px 36px;
+  }
+  @include mq('desk') {
+    width: 806px;
+    height: 558px;
+    padding: 40px 12px 40px 12px;
+  }
+}
+.modal__btn-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.modal__sidebar--left {
+  display: block;
+  border-radius: 5px;
+  width: 240px;
+  height: 357px;
+  margin-bottom: 20px;
+  @include mq('tab') {
+    width: 264px;
+    height: 374px;
+    margin-bottom: 0;
+    margin-right: 68px;
+  }
+  @include mq('desk') {
+    width: 375px;
+    height: 478px;
+    margin-right: 16px;
+  }
+}
+.modal__item {
+  display: flex;
+  margin-bottom: 8px;
+  &:last-child {
+    margin-bottom: 20px;
+  }
+}
+.modal__sidebar--right {
+  display: block;
+  @include mq('tab') {
+    width: 264px;
+  }
+  @include mq('desk') {
+    width: 391px;
+  }
+}
+.modal__title {
+  font-family: var(--main-font);
+  @include fonts(20px, 500, 1.08);
+  color: var(--cl-black);
+  margin-bottom: 20px;
+}
+.modal__heading {
+  width: 109px;
+  @include fonts(12px, 500, 1.33);
+  color: var(--cl-txt);
+}
+
+.modal__txt {
+  display: flex;
+  @include fonts(12px, 500, 1.33);
+  color: var(--cl-black);
+  align-items: center;
+}
+.modal__vote {
+  text-align: center;
+  width: 36px;
+  height: 16px;
+  border-radius: 5px;
+  background-color: var(--cl-accent);
+  margin-right: 2px;
+  color: var(--cl-white);
+}
+.modal__votes {
+  text-align: center;
+  width: 36px;
+  height: 16px;
+  border-radius: 5px;
+  background-color: var(--cl-secondary);
+  margin-left: 2px;
+  color: var(--cl-black);
+}
+
+.modal__subtitle {
+  @include fonts(12px, 500, 1.33);
+  color: var(--cl-black);
+  margin-bottom: 8px;
+}
+.modal__desc {
+  @include fonts(12px, 500, 1.66);
+  color: var(--cl-black);
+  margin-bottom: 20px;
+}
+.modal__box {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  @include mq('tab') {
+    gap: 15px;
+  }
+  @include mq('desk') {
+    justify-content: start;
+    gap: 15px;
+  }
+}
+.modal__btn--left {
+  @extend %btn;
+  @include mq('tab') {
+    width: 125px;
+  }
+  @include mq('desk') {
+    width: 136px;
+    margin-left: 10px;
+  }
+}
+.modal__btn--right {
+  @extend %btn;
+  @include mq('tab') {
+    width: 125px;
+  }
+  @include mq('desk') {
+    width: 136px;
+  }
+}
