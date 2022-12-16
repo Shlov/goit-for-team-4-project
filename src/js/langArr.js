@@ -1,4 +1,10 @@
 const langArray = {
+  // ? name of web site ?
+  webTitle: {
+    ua: 'Фільмотека',
+    en: 'Filmoteka',
+  },
+
   headerTitle: {
     ua: 'Фільмотека',
     en: 'Filmoteka',
@@ -15,5 +21,4 @@ const langArray = {
     ua: 'Пошук фильмів',
     en: 'Movie search',
   },
-  
 };
