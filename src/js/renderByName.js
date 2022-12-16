@@ -61,3 +61,14 @@ async function getMovieNameAPI(movie, page) {
       Loading.remove(2000);
     });
 }
+function pasteContent(array) {
+  const result = generateContent(array);
+  refs.list.insertAdjacentHTML('beforeend', result);
+
+  if (sliderActiv) {
+    resetSlider();
+  }
+  refs.slickSlider.innerHTML = result;
+  initializeSlider();
+  sliderActiv = true;
+}
