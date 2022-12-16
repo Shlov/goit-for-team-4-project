@@ -1,0 +1,29 @@
+.js-pagination {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+
+  &__btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+
+    text-align: center;
+    text-decoration: underline;
+
+    &:hover {
+      background-color: var(--cl-accent);
+      color: var(--cl-white);
+    }
+
+    &--current {
+        background-color: red;
+
+    }
+  }
+
+  &__svg{
+    fill: black;
+  }
+}
