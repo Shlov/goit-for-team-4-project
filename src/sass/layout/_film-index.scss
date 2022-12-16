@@ -2,8 +2,7 @@
   padding-bottom: 40px;
 
   @media screen and (min-width: 768px) {
-    padding-top: 60px;
-    padding-bottom: 60px;
+    @include section();
   }
 }
 
@@ -20,6 +19,10 @@
 }
 
 .film-item {
+  width: 100px;
+  height: 50px;
+  background-color: red;
+
   @include card-item();
 
   @media screen and (min-width: 768px) {

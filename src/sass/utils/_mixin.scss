@@ -14,7 +14,7 @@
   line-height: $lh;
 }
 
-@mixin section($pt: 100px, $pb: 100px) {
+@mixin section($pt: 60px, $pb: 60px) {
   padding-top: $pt;
   padding-bottom: $pb;
 }
