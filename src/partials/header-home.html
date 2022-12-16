@@ -1,35 +1,42 @@
 <!-- <h2>Header</h2> -->
 
-<header class="header">
-  <div class="header__container">
+<header class="header header-js">
+  <div class="header__container hdr__contn-js">
     <a class="logo lnk" href="./index.html">
-      <img src="./images/icon-site.png" alt="Logo" width="24" height="24"
-    /></a>
-
-    <nav class="nav">
-      <ul class="nav__list">
-        <li class="nav__item lst">
+      <img src="./images/icon-site.png" alt="Logo" width="24" height="24" />
+      <span class="header__title hdr__title-js">Filmoteka</span></a
+    >
+    
+    <nav class="nav nav-js">
+      <ul class="nav__list nav__lst-js">
+        <li class="nav__item lst nav__item-js">
           <a class="nav__link nav__link--current lnk" href="./index.html"
             >Home</a
           >
         </li>
-        <li class="nav__item lst">
+        <li class="nav__item lst nav__item-js">
           <a class="nav__link lnk" href="./library.html">My library</a>
         </li>
       </ul>
     </nav>
   </div>
-  <div class="header__form">
-    <form class="header__search-form" id="header-form">
+  <div class="header__form hdr__form-js">
+    <form class="header__search-form search-js" id="header-form">
       <input
-        class="input-form"
+        class="input-form inpt-js"
         type="text"
         name="searchQuery"
         autocomplete="off"
         placeholder="Movie search"
       />
-      <button class="button-form" type="submit">Search</button>
+      <button class="button-form btn__form-js" type="submit">
+        <img
+          src="./images/header/search 2.png"
+          alt="Search"
+          width="12"
+          height="12"
+        />
+      </button>
     </form>
   </div>
 </header>
-
