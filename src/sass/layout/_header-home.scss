@@ -93,11 +93,16 @@
   align-items: center;
   gap: 8px;
   margin-left: 22px;
-  padding-top: 42px;
+  padding-top: 40px;
 
   @media screen and (min-width: 768px) {
     margin-left: 32px;
-    padding-top: 40px;
+      
+  }
+
+  @media screen and (min-width: 1280px) {
+    gap: 10px;
+    // padding-top: 40px;
   }
 }
 
@@ -136,6 +141,7 @@
   border: none;
   outline: transparent;
   padding: 5px;
+  color: var(--cl-white);
 
   &::placeholder {
     @include fonts;
