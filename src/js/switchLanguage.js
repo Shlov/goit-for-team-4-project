@@ -55,11 +55,15 @@ langImgs.forEach(img => {
 });
 
 const openBgButton = document.querySelector('.jsBgLangOpen');
-const langList = document.querySelector('.jsLangList')
+const langList = document.querySelector('.jsLangList');
+
 openBgButton.addEventListener('click', () => {
-  console.log("That's a click");
-  openBgLang()
+  if (!langList) {
+    console.log('Return');
+    return;
+  } 
+    openBgLang();
 });
 function openBgLang() {
-    langList.classList.toggle('lang-hidden')
+  langList.classList.toggle('lang-hidden');
 }

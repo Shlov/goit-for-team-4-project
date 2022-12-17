@@ -512,20 +512,28 @@ h1, h2, h3, h4, h5, h6, p {
 
 .nav__item:last-child {
   position: relative;
+  cursor: pointer;
 }
 
 .lang-list {
   position: absolute;
-  border: 1px solid red;
-  right: 14px;
+  right: 6px;
+  top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   transition-property: opacity;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
 .lang-list img {
-  border-radius: 20%;
+  border-radius: 15%;
+}
+.lang-list li {
+  width: 50px;
 }
 
 .lang-hidden {
   opacity: 0;
+  cursor: auto;
 }/*# sourceMappingURL=index.css.map */
