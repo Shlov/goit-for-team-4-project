@@ -2,6 +2,7 @@
 @import './utils/modern-normalize';
 @import './utils/variables';
 @import './utils/mixin';
+@import './utils/visually-hidden';
 
 // base
 @import './base/common';
@@ -12,6 +13,7 @@
 @import './components/section';
 @import './components/button';
 @import './components/modal';
+@import './components/loader';
 
 // layout
 @import './layout/film-card';
@@ -20,4 +22,5 @@
 @import './layout/for-team';
 @import './layout/header-home';
 @import './layout/header-library';
+@import './layout/gallary';
 
