@@ -17,7 +17,6 @@ const refs = {
 };
 
 function renderGalleryFilms(cards) {
-  console.log(cards);
   const markup = cards.map(card => {
     const {
       id,
