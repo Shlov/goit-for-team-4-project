@@ -1,5 +1,4 @@
-const langArray = {
-  // ? name of web site ?
+const langArr = {
   webTitle: {
     ua: 'Фільмотека',
     en: 'Filmoteka',

@@ -1,46 +1,28 @@
-// const select = document.querySelector('#switchLanguage');
 const allLanguages = ['en', 'ua'];
 
-// select.addEventListener('change', changeURLLanguage);
+const langArr = {
+  webTitle: {
+    ua: 'Фільмотека',
+    en: 'Filmoteka',
+  },
 
-function changeURLLanguage() {
-  let lang = select.value;
-  location.href = window.location.pathname + '#' + lang;
-  location.reload();
-}
-
-function changeLanguage() {
-  let hash = window.location.hash;
-  hash = hash.substr(1);
-  console.log(hash);
-  setItem: localStorage.setItem('localStorageHash', hash);
-  console.log(localStorage.localStorageHash);
-
-  if (!allLanguages.includes(hash)) {
-    location.href = window.location.pathname + '#en';
-    location.reload();
-  }
-
-  //   select.value = hash;
-  //   document.querySelector('title').innerHTML = langArr['webTitle'][hash];
-
-  // for (let key in langArr) {
-  //   let elem = document.querySelector('.lng-' + key);
-  //   if (elem) {
-  //     elem.innerHTML = langArr[key][hash];
-
-  //     // //   document.querySelector('#firstInput').placeholder =
-  //     // //     langArr['firstPlaceholder'][hash];
-  //     // //   document.querySelector('#secondInput').placeholder =
-  //     // //     langArr['secondPlaceholder'][hash];
-  //   }
-  // }
-}
-changeLanguage();
-
-// const ru = 'https://i.ibb.co/MCXYQD1/russia.png'
-const KZ = 'https://i.ibb.co/SyxxBx8/kazakhstan.png';
-const UK = 'https://i.ibb.co/rbcBCtd/united-kingdom.png';
+  headerTitle: {
+    ua: 'Фільмотека',
+    en: 'Filmoteka',
+  },
+  homepage: {
+    ua: 'Домашня сторінка',
+    en: 'Home',
+  },
+  myLibrary: {
+    ua: 'Моя бібліотека',
+    en: 'My library',
+  },
+  movieSearch: {
+    ua: 'Пошук фильмів',
+    en: 'Movie search',
+  },
+};
 
 // ? open language list
 
@@ -52,3 +34,48 @@ openBgButton.addEventListener('click', openBgLang);
 function openBgLang() {
   langList.classList.toggle('lang-hidden');
 }
+
+const langUA = document.querySelector('.jsUA');
+const langUK = document.querySelector('.jsUK');
+
+langUA.addEventListener('click', changeURLLanguageUA);
+langUK.addEventListener('click', changeURLLanguageUK);
+
+function changeURLLanguageUA() {
+  location.href = window.location.pathname + '#' + 'ua';
+  setItem: localStorage.setItem('localStorageHash', 'ua');
+  changeLanguage();
+
+  // for (let key in langArr) {
+  //   let elem = document.querySelector('.lng-' + key);
+  //   if (elem) {
+  //     elem.innerHTML = langArr[key][ua];
+  //   }
+  // }
+}
+function changeURLLanguageUK() {
+  location.href = window.location.pathname + '#' + 'en';
+  setItem: localStorage.setItem('localStorageHash', 'en');
+  changeLanguage();
+
+  // for (let key in langArr) {
+  //   let elem = document.querySelector('.lng-' + key);
+  //   if (elem) {
+  //     elem.innerHTML = langArr[key][ua];
+  //   }
+  // }
+}
+function changeLanguage() {
+  let hash = window.location.hash;
+  hash = hash.substr(1);
+  console.log(hash);
+  setItem: localStorage.setItem('localStorageHash', hash);
+  // console.log(localStorage.localStorageHash);
+
+  if (!allLanguages.includes(hash)) {
+    location.href = window.location.pathname + '#en';
+    location.reload();
+  }
+  document.querySelector('title').innerHTML = langArr['webTitle'][hash];
+}
+changeLanguage();
