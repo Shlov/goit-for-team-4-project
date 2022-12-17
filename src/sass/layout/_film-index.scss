@@ -18,10 +18,8 @@
   }
 }
 
-.film-item {
-  width: 100px;
-  height: 50px;
-  background-color: red;
+.card {
+
 
   @include card-item();
 
