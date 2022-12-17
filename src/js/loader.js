@@ -1,17 +1,16 @@
-const loaderEl = document.querySelector('.loader-js')
+const loaderEl = document.querySelector('.loader-js');
 
-// Запускає при створенні запиту (додати у відповідну функцію)
+// Запускає Loader при створенні запиту (додати у відповідну функцію)
 function startLoader() {
   loaderEl.removeAttribute('hidden');
 }
 
-//Виключає при отримані даних для відмальовки катрок фільмів
+//Виключає Loader при отримані даних для відмальовки катрок фільмів
 function offLoader() {
   loaderEl.setAttribute('hidden', true);
 }
 
-
-// Перевірка роботи
+// Перевірка роботи Loader-а
 
 // startLoader();
 // setTimeout(offLoader, 1000);
