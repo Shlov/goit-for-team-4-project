@@ -11,8 +11,8 @@ function onClick(evt) {
 const paginationRef = document.querySelector('.js-pagination');
 
 const data = {
-    page: 2,
-    totalPages: 10,
+    page: 17,
+    totalPages: 20,
 }
 
 console.log('Width viewport', window.innerWidth);
@@ -36,25 +36,21 @@ function createTypicalPaginationNavigation(data) {
 // ***<<<<< In case to up 5 pages >>>>>>***
     if (totalPages <= 5) {        
         for (let i = 1; i <= totalPages; i++) {
-            if (i === page) {
-                paginationButtonWithNumber = `<button type="button" class="js-pagination__btn js-pagination__btn--current" disabled name="number-page">${i}</button>`
-            } else {
-                paginationButtonWithNumber = `<button type="button" class="js-pagination__btn js-pagination__btn--active" name="number-page">${i}</button>`
-            }
+            paginationButtonWithNumber = selectConditionOfButton(i, page);
             paginationElements += paginationButtonWithNumber;            
         }
 
         if (page === 1) {
-            paginationElementsLeft = `<button type="button" class="js-pagination__btn js-pagination__btn--block" name="pre-page" disabled><</button>`;            
+            paginationElementsLeft = `<button type="button" class="js-pagination__btn js-pagination__btn--block" name="pre-page" disabled><i class="fa-solid fa-arrow-left"></i></button>`;            
         } else {
-            paginationElementsLeft = `<button type="button" class="js-pagination__btn js-pagination__btn--active" name="pre-page"><</button>`;            
+            paginationElementsLeft = `<button type="button" class="js-pagination__btn js-pagination__btn--active js-pagination__btn--grey" name="pre-page"><i class="fa-solid fa-arrow-left"></i></button>`;            
         }
         
 
         if (page === totalPages) {
-            paginationElementsRight =`<button type="button" class="js-pagination__btn js-pagination__btn--block" name="next-page" disabled>></button>`
+            paginationElementsRight =`<button type="button" class="js-pagination__btn js-pagination__btn--block" name="next-page" disabled><i class="fas fa-arrow-right"></i></button>`
         } else {
-            paginationElementsRight =`<button type="button" class="js-pagination__btn js-pagination__btn--active" name="next-page">></button>`
+            paginationElementsRight =`<button type="button" class="js-pagination__btn js-pagination__btn--active js-pagination__btn--grey" name="next-page"><i class="fas fa-arrow-right"></i></button>`
         }
 
         paginationHtml = paginationElementsLeft + paginationElements + paginationElementsRight;
@@ -65,14 +61,14 @@ function createTypicalPaginationNavigation(data) {
 
         if((page-3)>0){
             paginationElementsLeft = `
-<button type="button" class="js-pagination__btn js-pagination__btn--active" name="pre-page"><</button>
+<button type="button" class="js-pagination__btn js-pagination__btn--active js-pagination__btn--grey" name="pre-page"><i class="fa-solid fa-arrow-left"></i></button>
 <button type="button" class="js-pagination__btn js-pagination__btn--active" name="first-page">1</button>
-<span>...</span>`;
+<span>&#183&#183&#183</span>`;
         }else{
             if (page === 1) {
-                paginationElementsLeft = `<button type="button" class="js-pagination__btn js-pagination__btn--block" name="pre-page" disabled><</button>`;
+                paginationElementsLeft = `<button type="button" class="js-pagination__btn js-pagination__btn--block" name="pre-page" disabled><i class="fa-solid fa-arrow-left"></i></button>`;
             } else {
-                paginationElementsLeft = `<button type="button" class="js-pagination__btn js-pagination__btn--active" name="pre-page"><</button>`;
+                paginationElementsLeft = `<button type="button" class="js-pagination__btn js-pagination__btn--active js-pagination__btn--grey" name="pre-page"><i class="fa-solid fa-arrow-left"></i></button>`;
             }
             
             flag -= 1;
@@ -80,48 +76,41 @@ function createTypicalPaginationNavigation(data) {
 
         if((totalPages-page > 2)){
             paginationElementsRight = `
-<span>...</span>
+<span>&#183&#183&#183</span>
 <button type="button" class="js-pagination__btn js-pagination__btn--active" name="last-page">${totalPages}</button>
-<button type="button" class="js-pagination__btn js-pagination__btn--active" name="next-page">></button>`;
+<button type="button" class="js-pagination__btn js-pagination__btn--active js-pagination__btn--grey" name="next-page"><i class="fas fa-arrow-right"></i></button>`;
         }else{
             if (page === totalPages) {
-                paginationElementsRight = `<button type="button" class="js-pagination__btn js-pagination__btn--block" name="next-page" disabled>></button>`
+                paginationElementsRight = `<button type="button" class="js-pagination__btn js-pagination__btn--block" name="next-page" disabled><i class="fas fa-arrow-right"></i></button>`
             } else {
-                paginationElementsRight = `<button type="button" class="js-pagination__btn js-pagination__btn--active" name="next-page">></button>`
+                paginationElementsRight = `<button type="button" class="js-pagination__btn js-pagination__btn--active js-pagination__btn--grey" name="next-page"><i class="fas fa-arrow-right"></i></button>`
                 }
                 flag += 1;
         }
 
         if (flag ===-1) {
             for (let i = 1; i <= 5; i++) {
-                if (i === page) {
-                paginationButtonWithNumber = `<button type="button" class="js-pagination__btn js-pagination__btn--current" name="number-page" disabled>${i}</button>`
-                } else {
-                paginationButtonWithNumber = `<button type="button" class="js-pagination__btn js-pagination__btn--active" name="number-page">${i}</button>`
-            }
-            paginationElements += paginationButtonWithNumber;
+                paginationButtonWithNumber = selectConditionOfButton(i, page);
+                paginationElements += paginationButtonWithNumber;
             };            
         } else if(flag===0){
             for (let i = (page-2); i <= (page+2); i++) {
-                if (i === page) {
-                paginationButtonWithNumber = `<button type="button" class="js-pagination__btn js-pagination__btn--current" name="number-page" disabled>${i}</button>`
-                } else {
-                paginationButtonWithNumber = `<button type="button" class="js-pagination__btn js-pagination__btn--active" name="number-page">${i}</button>`
-            }
-            paginationElements += paginationButtonWithNumber;
+                paginationButtonWithNumber = selectConditionOfButton(i, page);
+                paginationElements += paginationButtonWithNumber;
             };            
         } else if (flag===1){
             for (let i = (totalPages-5); i <= totalPages; i++) {
-                if (i === page) {
-                paginationButtonWithNumber = `<button type="button" class="js-pagination__btn js-pagination__btn--current" name="number-page" disabled>${i}</button>`
-                } else {
-                paginationButtonWithNumber = `<button type="button" class="js-pagination__btn js-pagination__btn--active" name="number-page">${i}</button>`
-                }
-            paginationElements += paginationButtonWithNumber;
+                paginationButtonWithNumber = selectConditionOfButton(i, page);
+                paginationElements += paginationButtonWithNumber;
             };
         }
 
-        function selectConditionOfButton(i, page) {
+        paginationHtml = paginationElementsLeft+paginationElements+paginationElementsRight;
+        return paginationHtml;
+    }
+}
+
+function selectConditionOfButton(i, page) {
             let text = '';
             
             if (i === page) {
@@ -131,11 +120,5 @@ function createTypicalPaginationNavigation(data) {
             }
             return text
         }
-
-        paginationHtml = paginationElementsLeft+paginationElements+paginationElementsRight;
-        return paginationHtml;
-    }
-}
-
 
 paginationRef.insertAdjacentHTML("afterend", createTypicalPaginationNavigation(data));

@@ -8,10 +8,21 @@
     height: 40px;
     padding: 0;
     margin: 0;
+    background-color: var(--cl-white);
 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
     text-align: center;
-    font-weight: 900;
+
     border-radius: 5px;
+    border-color: var(--cl-white);
+    border-style: none;
 
     cursor: pointer;    
     transition: background-color var(--animat), color var(--animat);
@@ -24,18 +35,20 @@
 
     &--current {
       color: var(--cl-black);
-      background-color: rgb(245, 132, 3);
+      background-color: #FF6B08;
       cursor: auto;
     }
 
     &--block {      
-      background-color: rgb(180, 179, 179);
+      background-color: rgb(219, 217, 217);
       color: rgb(80, 79, 79);
       cursor: auto;
     }
+
+    &--gray{
+      background-color: var(--cl-secondary);
+    }
   }
 
-  &__svg{
-    fill: black;
-  }
+  
 }
