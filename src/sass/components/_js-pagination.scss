@@ -1,7 +1,7 @@
 .js-pagination {
   display: flex;
   justify-content: center;
-  align-self: center;
+  align-items: center;
 
   &__btn {
     width: 40px;
@@ -40,15 +40,21 @@
     }
 
     &--block {      
-      background-color: rgb(219, 217, 217);
+      background-color: var(--cl-secondary);
       color: rgb(80, 79, 79);
       cursor: auto;
     }
-
-    &--gray{
-      background-color: var(--cl-secondary);
-    }
-  }
-
+  } 
   
+  &__span {
+    width: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.js-gray {
+      background-color: var(--cl-secondary);
 }
