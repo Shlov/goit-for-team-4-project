@@ -2,6 +2,7 @@
 @import './utils/modern-normalize';
 @import './utils/variables';
 @import './utils/mixin';
+@import './utils/visually-hidden';
 
 // base
 @import './base/common';
@@ -12,6 +13,7 @@
 @import './components/section';
 @import './components/button';
 @import './components/modal';
+@import './components/loader';
 @import './components/js-pagination';
 
 // layout
@@ -22,4 +24,6 @@
 @import './layout/header-home';
 @import './layout/header-library';
 @import './layout/pagination';
+@import './layout/gallary';
+
 
