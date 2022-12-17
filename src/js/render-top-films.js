@@ -30,7 +30,9 @@ function renderGalleryFilms(cards) {
       title,
       vote_average,
     } = card;
-    return  `<li class="card card-js" data-id="${id}">
+    return  `<li class="card card-js" data-id="${id}"><div>
+      <button data-id="${id}" class="button-youtube"></button>
+    </div>
     <a class="card__link lnk" href="#">
       <img class="card__img" src="${poster_path}" alt="${original_title}" width="395" height="574">
       <h3 class="card__name card__name-lang">${original_title}</h3>
