@@ -22,6 +22,10 @@ const langArr = {
     ua: 'Пошук фильмів',
     en: 'Movie search',
   },
+  languageChoose: {
+    ua: 'Мова',
+    en: 'Language',
+  },
 };
 
 // ? open language list
