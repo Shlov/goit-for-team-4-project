@@ -1,0 +1,14 @@
+.pagination{
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    @include mq(tab) {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    &__container{
+        @include centered-flex();
+        padding-top: 0;        
+    }        
+}

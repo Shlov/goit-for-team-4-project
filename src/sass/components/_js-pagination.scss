@@ -1,0 +1,60 @@
+.js-pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__btn {
+    width: 40px;
+    height: 40px;
+    padding: 0;
+    margin: 0;
+    background-color: var(--cl-white);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.33;
+    text-align: center;
+
+    border-radius: 5px;
+    border-color: var(--cl-white);
+    border-style: none;
+
+    cursor: pointer;    
+    transition: background-color var(--animat), color var(--animat);
+    &--active{
+      &:hover {
+      background-color: var(--cl-accent);
+      color: var(--cl-white);
+      } 
+    }         
+
+    &--current {
+      color: var(--cl-black);
+      background-color: #FF6B08;
+      cursor: auto;
+    }
+
+    &--block {      
+      background-color: var(--cl-secondary);
+      color: rgb(80, 79, 79);
+      cursor: auto;
+    }
+  } 
+  
+  &__span {
+    width: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.js-gray {
+      background-color: var(--cl-secondary);
+}
