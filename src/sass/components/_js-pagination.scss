@@ -10,18 +10,20 @@
     margin: 0;
 
     text-align: center;
-    text-decoration: underline;
+    font-weight: 900;
     border-radius: 5px;
 
     cursor: pointer;    
     transition: background-color var(--animat), color var(--animat);
-      
+    &--active{
       &:hover {
-        background-color: var(--cl-accent);
-        color: var(--cl-white);
-      }    
+      background-color: var(--cl-accent);
+      color: var(--cl-white);
+      } 
+    }         
 
     &--current {
+      color: var(--cl-black);
       background-color: rgb(245, 132, 3);
       cursor: auto;
     }
