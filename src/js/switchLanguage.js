@@ -68,7 +68,6 @@ function changeURLLanguageUK() {
 function changeLanguage() {
   let hash = window.location.hash;
   hash = hash.substr(1);
-  console.log(hash);
   setItem: localStorage.setItem('localStorageHash', hash);
   // console.log(localStorage.localStorageHash);
 
@@ -77,5 +76,13 @@ function changeLanguage() {
     location.reload();
   }
   document.querySelector('title').innerHTML = langArr['webTitle'][hash];
+  document.querySelector('.inpt-js').innerHTML = langArr['movieSearch'][hash]
+  for (let key in langArr) {
+    let elem = document.querySelector('.lng-' + key);
+    if (elem) {
+      elem.textContent = langArr[key][hash];
+    }
+  }
 }
+
 changeLanguage();

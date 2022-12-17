@@ -3,7 +3,6 @@ const langArr = {
     ua: 'Фільмотека',
     en: 'Filmoteka',
   },
-
   headerTitle: {
     ua: 'Фільмотека',
     en: 'Filmoteka',
@@ -19,5 +18,9 @@ const langArr = {
   movieSearch: {
     ua: 'Пошук фильмів',
     en: 'Movie search',
+  },
+  language: {
+    ua: 'Мова',
+    en: 'Language',
   },
 };
