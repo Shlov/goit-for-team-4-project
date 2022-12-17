@@ -29,9 +29,9 @@ function renderGalleryFilms(cards) {
       title,
       vote_average,
     } = card;
-    return `<a class="gallery__link" href="">
-    <img class="gallery--item__img" src="${poster_path}" alt="${title}" width = "300" />
-        </a>` }).join('')
+    return  `<li class="gallery__item" data-id="${id}"><a class="gallery__link" href="">
+    <img class="gallery--item__img" src="${poster_path}" alt="${original_title}" width = "300" />
+        </a></li>` }).join('')
   refs.card.insertAdjacentHTML('beforeend', markup);
 }
 
