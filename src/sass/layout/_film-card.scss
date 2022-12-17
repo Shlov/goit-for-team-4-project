@@ -1,6 +1,6 @@
 .card {
-  width: 395px;
-  height: 634px;
+  width: 280px;
+  height: 438px;
 
   // &__img {
 
@@ -14,4 +14,25 @@
   // &__rating {
 
   // }
+}
+
+.card__img {
+  width: 280px;
+  height: 398px;
+  margin-bottom: 8px;
+}
+
+.card__name {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+  color: black;
+
+}
+
+.card__info {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+  color: #FF6B08;
 }
