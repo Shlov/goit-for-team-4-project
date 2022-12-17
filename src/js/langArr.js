@@ -19,7 +19,7 @@ const langArr = {
     ua: 'Пошук фильмів',
     en: 'Movie search',
   },
-  language: {
+  languageChoose: {
     ua: 'Мова',
     en: 'Language',
   },
