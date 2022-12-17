@@ -357,6 +357,11 @@ h1, h2, h3, h4, h5, h6, p {
     transform: rotate(360deg);
   }
 }
+.card {
+  width: 395px;
+  height: 634px;
+}
+
 .film-container {
   padding-bottom: 40px;
 }
@@ -617,8 +622,8 @@ h1, h2, h3, h4, h5, h6, p {
 
 .lang-list {
   position: absolute;
-  right: 6px;
   top: 20px;
+  right: -11px;
   display: flex;
   flex-direction: column;
   gap: 2px;
@@ -630,7 +635,15 @@ h1, h2, h3, h4, h5, h6, p {
   border-radius: 15%;
 }
 .lang-list li {
-  width: 50px;
+  width: 60px;
+}
+
+.lang-list-ua {
+  right: -11px;
+}
+
+.lang-list-uk {
+  right: 6px;
 }
 
 .lang-hidden {

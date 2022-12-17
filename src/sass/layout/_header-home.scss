@@ -165,8 +165,8 @@
 }
 .lang-list {
   position: absolute;
-  right: 6px;
   top: 20px;
+  right: -11px;
 
   display: flex;
   flex-direction: column;
@@ -180,9 +180,22 @@
     border-radius: 15%;
   }
   & li {
-    width: 50px;
+    width: 60px;
   }
+  // &-ua {
+  //   right: -10px;
+  // }
+  // &-uk {
+  //   right: 6px;
+  // }
 }
+.lang-list-ua {
+  right: -11px;
+}
+.lang-list-uk {
+  right:  6px;
+}
+
 .lang-hidden {
   opacity: 0;
   cursor: auto;
