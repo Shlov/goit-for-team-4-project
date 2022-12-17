@@ -76,7 +76,7 @@ function changeLanguage() {
     location.reload();
   }
   document.querySelector('title').innerHTML = langArr['webTitle'][hash];
-  document.querySelector('.inpt-js').innerHTML = langArr['movieSearch'][hash]
+  document.querySelector('.inpt-js').placeholder = langArr['movieSearch'][hash];
   for (let key in langArr) {
     let elem = document.querySelector('.lng-' + key);
     if (elem) {
