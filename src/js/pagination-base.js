@@ -4,7 +4,6 @@ import createMobilePaginationNavigation from "./pagination-create-mobile-nav";
 
 const paginationClickForInput = document.querySelector(".pagination-click");
 const paginationInput = document.querySelector(".pagination-input");
-paginationClickForInput.addEventListener("click", onClick);
 
 const paginationRef = document.querySelector('.js-pagination');
 
