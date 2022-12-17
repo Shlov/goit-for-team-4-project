@@ -14,18 +14,28 @@ function onClick(evt) {
 const paginationRef = document.querySelector('.js-pagination');
 
 const data = {
-    page: 1,
-    totalPages: 24,
+    page: 5,
+    totalPages: 5,
 }
 
+console.log('Width viewport', window.innerWidth);
 
+
+window.addEventListener("resize", onChangeWindow);
+function onChangeWindow(evt) {
+    console.log(evt)
+}
 
 // Func. for create Pagination
 function createPaginationNavigation(data) {
     const { page, totalPages } = data;
+
     let paginationHtml = '';
     let paginationElements = '';
     let paginationButtonWithNumber = '';
+    let paginationElementsLeft;
+    let paginationElementsRight;
+
     if (totalPages <= 5) {        
         for (let i = 1; i <= totalPages; i++) {
             if (i === page) {
@@ -35,14 +45,29 @@ function createPaginationNavigation(data) {
             }
             paginationElements += paginationButtonWithNumber;            
         }
-        paginationHtml = '<button type="button" class="js-pagination__btn" name="pre-page"><<</button>' + paginationElements + '<button type="button" class="js-pagination__btn" name="next-page">>></button>';
+
+        if (page === 1) {
+            paginationElementsLeft = `
+<button type="button" class="js-pagination__btn js-pagination__btn--block" name="pre-page" disabled><</button>`;            
+        } else {
+            paginationElementsLeft = `
+<button type="button" class="js-pagination__btn" name="pre-page"><</button>`;            
+        }
+        
+
+        if (page === totalPages) {
+            paginationElementsRight =`
+<button type="button" class="js-pagination__btn js-pagination__btn--block" name="next-page" disabled>></button>`
+        } else {
+            paginationElementsRight =`
+<button type="button" class="js-pagination__btn" name="next-page">></button>`
+        }
+
+        paginationHtml = paginationElementsLeft + paginationElements + paginationElementsRight;
         return paginationHtml;
     } else {
+        // in case more 5 pages
         let flag = 0;
-
-
-        let paginationElementsLeft;
-        let paginationElementsRight;
 
         if((page-3)>0){
             paginationElementsLeft = `
@@ -50,9 +75,12 @@ function createPaginationNavigation(data) {
 <button type="button" class="js-pagination__btn" name="first-page">1</button>
 <span>...</span>`;
         }else{
-            paginationElementsLeft = `
-<button type="button" class="js-pagination__btn" name="pre-page" disabled><</button>
-<span>...</span>`;
+            if (page === 1) {
+                paginationElementsLeft = `<button type="button" class="js-pagination__btn js-pagination__btn--block" name="pre-page" disabled><</button>`;
+            } else {
+                paginationElementsLeft = `<button type="button" class="js-pagination__btn" name="pre-page"><</button>`;
+            }
+            
             flag -= 1;
         }
 
@@ -62,10 +90,12 @@ function createPaginationNavigation(data) {
 <button type="button" class="js-pagination__btn" name="last-page">${totalPages}</button>
 <button type="button" class="js-pagination__btn" name="next-page">></button>`;
         }else{
-            paginationElementsRight = `
-<span>...</span>
-<button type="button" class="js-pagination__btn" name="next-page" disabled>></button>`
-            flag += 1;
+            if (page === totalPages) {
+                paginationElementsRight = `<button type="button" class="js-pagination__btn js-pagination__btn-block" name="next-page" disabled>></button>`
+            } else {
+                paginationElementsRight = `<button type="button" class="js-pagination__btn" name="next-page">></button>`
+                }
+                flag += 1;
         }
 
         if (flag ===-1) {

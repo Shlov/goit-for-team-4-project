@@ -11,15 +11,25 @@
 
     text-align: center;
     text-decoration: underline;
+    border-radius: 5px;
 
-    &:hover {
-      background-color: var(--cl-accent);
-      color: var(--cl-white);
-    }
+    cursor: pointer;    
+    transition: background-color var(--animat), color var(--animat);
+      
+      &:hover {
+        background-color: var(--cl-accent);
+        color: var(--cl-white);
+      }    
 
     &--current {
-        background-color: red;
+      background-color: rgb(245, 132, 3);
+      cursor: auto;
+    }
 
+    &--block {      
+      background-color: rgb(180, 179, 179);
+      color: rgb(80, 79, 79);
+      cursor: auto;
     }
   }
 
