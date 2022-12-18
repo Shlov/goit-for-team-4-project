@@ -37,26 +37,30 @@ const langArr = {
     en: 'queue',
   },
 };
+checkLocalStorageHash();
 
 // ? Сохранение языка при переходе на новую страницу ?
-if (localStorage.getItem('localStorageHash')) {
+function checkLocalStorageHash() {
   const currentHash = localStorage.getItem('localStorageHash');
-  document.querySelector('title').innerHTML = langArr['webTitle'][currentHash];
+  if (currentHash) {
+    document.querySelector('title').innerHTML =
+      langArr['webTitle'][currentHash];
 
-  // ? Меняет на домашней странице placeholder в input ?
-  const searchBar = document.querySelector('.inpt-js');
-  if (searchBar) {
-    searchBar.placeholder = langArr['movieSearch'][currentHash];
-  }
-  // ? Берёт перевод на слова, которые есть в массиве "langArr" ?
-  for (let key in langArr) {
-    let elem = document.querySelector('.lng-' + key);
-    if (elem) {
-      elem.textContent = langArr[key][currentHash];
+    // ? Меняет на домашней странице placeholder в input ?
+    const searchBar = document.querySelector('.inpt-js');
+    if (searchBar) {
+      searchBar.placeholder = langArr['movieSearch'][currentHash];
     }
+    // ? Берёт перевод на слова, которые есть в массиве "langArr" ?
+    for (let key in langArr) {
+      let elem = document.querySelector('.lng-' + key);
+      if (elem) {
+        elem.textContent = langArr[key][currentHash];
+      }
+    }
+  } else {
+    changeLanguage();
   }
-} else {
-  changeLanguage();
 }
 
 // ? open language list ?
