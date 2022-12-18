@@ -83,7 +83,11 @@ function changeLanguage() {
     location.reload();
   }
   document.querySelector('title').innerHTML = langArr['webTitle'][hash];
-  document.querySelector('.inpt-js').placeholder = langArr['movieSearch'][hash];
+  const searchBar = document.querySelector('.inpt-js');
+  if (searchBar) {
+    searchBar.placeholder = langArr['movieSearch'][hash];
+  }
+
   for (let key in langArr) {
     let elem = document.querySelector('.lng-' + key);
     if (elem) {
