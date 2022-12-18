@@ -29,7 +29,26 @@ const langArr = {
     en: 'Language',
   },
 };
-changeLanguage();
+
+if (localStorage.getItem('localStorageHash')) {
+  const currentHash = localStorage.getItem('localStorageHash');
+  document.querySelector('title').innerHTML = langArr['webTitle'][currentHash];
+  
+  // ? Меняет на домашней странице placeholder в input ?
+  const searchBar = document.querySelector('.inpt-js');
+  if (searchBar) {
+    searchBar.placeholder = langArr['movieSearch'][currentHash];
+  }
+  // ? Берёт перевод на слова, которые есть в массиве "langArr" ?
+  for (let key in langArr) {
+    let elem = document.querySelector('.lng-' + key);
+    if (elem) {
+      elem.textContent = langArr[key][currentHash];
+    }
+  }
+} else {
+  changeLanguage();
+}
 
 // ? open language list ?
 
