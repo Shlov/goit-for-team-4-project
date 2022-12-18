@@ -13,7 +13,7 @@
     <script type="module" src="./index.js"></script>
 
   </head>
-  <body>
+  <body">
     <include src="./partials/header-home.html"></include>
     <include src="./partials/loader.html"></include>
     <include src="./partials/film-index.html"></include>
@@ -25,5 +25,28 @@
 
     <script type="module" src="/src/js/switchLanguage.js"></script>
     <!-- <script type="module" src="/src/js/langArr.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/smoothscroll/1.4.10/SmoothScroll.min.js" integrity="sha256-huW7yWl7tNfP7lGk46XE+Sp0nCotjzYodhVKlwaNeco=" crossorigin="anonymous"></script>
+    <script>
+    SmoothScroll({
+    // Час скролу 400 = 0.4 секунди
+    animationTime : 800,
+    // Розмір кроку в пікселях
+    stepSize : 75,    
+    // Прискорення
+    accelerationDelta : 30,
+    // Максимальне прискорення
+    accelerationMax : 2,    
+    // Підтримка клавіатури
+    keyboardSupport : true,
+    // Крок скролу стрілками на клавіатурі в пікселях
+    arrowScroll : 50,   
+  
+    pulseAlgorithm : true,
+    pulseScale : 4,
+    pulseNormalize : 1,    
+    // Підтримка тачпаду
+    touchpadSupport : true,
+    })
+    </script>
   </body>
 
