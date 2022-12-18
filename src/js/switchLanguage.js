@@ -38,6 +38,7 @@ const langArr = {
   },
 };
 
+// ? Сохранение языка при переходе на новую страницу ?
 if (localStorage.getItem('localStorageHash')) {
   const currentHash = localStorage.getItem('localStorageHash');
   document.querySelector('title').innerHTML = langArr['webTitle'][currentHash];
