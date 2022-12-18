@@ -29,19 +29,17 @@ export default class NewsApiService {
       console.log(error);
     }
   }
-  incrementPage() {
-    this.page += 1;
-  }
-  decrementPage() {
-    this.page -= 1;
-  }
-  resetPage() {
-    this.page = 1;
-  }
   get query() {
     return this.searchQuery;
   }
   set query(newQuery) {
     this.searchQuery = newQuery;
   }
+  get queryPage() {
+    return this.page;
+  }
+  set queryPage(newPage) {
+    this.page = newPage;
+  }
+
 }
