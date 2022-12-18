@@ -30,10 +30,10 @@ function renderGalleryFilms(cards) {
     } = card;
     return  `<li class="card card-js" data-id="${id}"> <div>
     <button data-id="${id}" class="button-youtube"></button>
-  </div>
+  </div><div class="card__wrap">
       <img class="card__img" src="${poster_path}" alt="${original_title}" width="395" height="574">
       <h3 class="card__name card__name-lang">${original_title}</h3>
-      <p class="card__info card__info-lang"> ${genre_ids} | ${release_date}<span class="card__rating"> ${vote_average} </span></p>
+      <p class="card__info card__info-lang"> ${genre_ids} | ${release_date}<span class="card__rating"> ${vote_average} </span></p></div>
   </li>` }).join('')
   refs.card.insertAdjacentHTML('beforeend', markup);
 }

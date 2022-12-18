@@ -1,6 +1,17 @@
 .card {
-  width: 280px;
+  // position: relative;
+    width: 280px;
   height: 438px;
+
+  @include mq(tab) {
+    width: 336px;
+      height: 495px;
+    }
+  
+            @include mq(desk) {
+            width: 395px;
+              height: 634px;
+            }
 
   // &__img {
 
@@ -15,19 +26,41 @@
 
   // }
 }
-
+.card__wrap {
+  @include mq(tab) {
+    display: block;
+    }
+  
+}
 .card__img {
   width: 280px;
-  height: 398px;
+  min-height: 398px;
   margin-bottom: 8px;
+    @include mq(tab) {
+        width: 336px;
+        height: 455px;
+      }
+    
+      @include mq(desk) {
+        width: 394px;
+        height: 574px;
+      }
 }
 
 .card__name {
   font-weight: 500;
   font-size: 12px;
-  line-height: calc(16 / 12);
+  line-height: calc(14 / 12);
   color: black;
-
+  text-transform: uppercase;
+    @include mq(tab) {
+              line-height: calc(16 / 12);
+      }
+    
+      @include mq(desk) {
+      font-size: 20px;
+        line-height: calc(24 / 20);
+      }
 }
 
 .card__info {
@@ -35,4 +68,30 @@
   font-size: 12px;
   line-height: calc(16 / 12);
   color: #FF6B08;
+  text-transform: uppercase;
+    @include mq(tab) {
+        line-height: calc(16 / 12);
+      }
+    
+      @include mq(desk) {
+        font-size: 20px;
+        line-height: calc(24 / 20);
+      }
+}
+
+
+.button-youtube {
+  position: absolute;
+  z-index: 1;
+  width: 275px;
+  height: 40px;
+  margin-left: 2px;
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border: 0;
+  outline: none;
+ background-image: url(../..//..//src/images/icons8-youtube-play.svg);
+  background-color: initial;
+// top: 50%;
+//   left: 50%;
 }
