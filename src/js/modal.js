@@ -3,7 +3,6 @@ import newsApiService from './fetch';
 const newData = new newsApiService();
 
 const cardContainer = document.querySelector('.modal-window');
-const closeBtn = document.querySelector('.js-close');
 const card = document.querySelector('.film-list');
 const modal = document.querySelector('.modal-backdrop');
 
@@ -14,24 +13,18 @@ if (card) {
 function onOpenModal(event) {
   const selectedMovie = event.target.closest('li');
   const selectedMovieId = Number(selectedMovie.getAttribute('data-id'));
-  console.log(selectedMovieId);
-  if (event.target.nodeName === 'IMG') {
-    console.log(event.target);
-    console.log('Это картинка');
+
+  if (event.target.nodeName !== 'BUTTON') {
     openModal();
+    //Получение данных о фильме в модалку
     newData.getFilmDetails(selectedMovieId).then(data => {
-      console.log(data);
       renderModalContent(data);
-      modal.addEventListener('click', onCloseModal);
+      const closeBtn = document.querySelector('.js-close');
+      closeBtn.addEventListener('click', onCloseModal);
+
+      document.addEventListener('keydown', onCloseModal);
     });
   }
-
-  //Получение данных о фильме в модалку
-
-  // newData.getFilmDetails(selectedMovieId).then(data => {
-  //   // modalMarkup(data);
-  //   console.log(data);
-  // });
 }
 function openModal() {
   modal.classList.remove('is-hidden');
@@ -39,14 +32,13 @@ function openModal() {
 
 function onCloseModal() {
   modal.classList.add('is-hidden');
-  console.log('клик');
 }
 
-// function offModalLogInForClickBeackdrop(event) {
-//   if (event.target === backdropLogIn) {
-//     onCloseModal();
-//   }
-// }
+function offModalLogInForClickBeackdrop(event) {
+  if (event.target === backdropLogIn) {
+    // onCloseModal();
+  }
+}
 
 // function offModalLogInForEscape(event) {
 //   if (event.key === 'Escape') {
