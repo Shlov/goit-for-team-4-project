@@ -11,6 +11,8 @@
   background: rgba(0, 0, 0, 0.2);
   opacity: 1;
   transition-property: opacity;
+  transition-duration: 350ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
   &.is-hidden {
     opacity: 0;
