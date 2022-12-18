@@ -1,39 +1,39 @@
 // ? Допустимый hash
-const allLanguages = ['en', 'ua'];
+const allLanguages = ['en', 'uk'];
 
 // ? Массив переведённых слов ?
 const langArr = {
   webTitle: {
-    ua: 'Фільмотека',
+    uk: 'Фільмотека',
     en: 'Filmoteka',
   },
 
   headerTitle: {
-    ua: 'Фільмотека',
+    uk: 'Фільмотека',
     en: 'Filmoteka',
   },
   homepage: {
-    ua: 'Домашня сторінка',
+    uk: 'Домашня сторінка',
     en: 'Home',
   },
   myLibrary: {
-    ua: 'Моя бібліотека',
+    uk: 'Моя бібліотека',
     en: 'My library',
   },
   movieSearch: {
-    ua: 'Пошук фильмів',
+    uk: 'Пошук фильмів',
     en: 'Movie search',
   },
   languageChoose: {
-    ua: 'Мова',
+    uk: 'Мова',
     en: 'Language',
   },
   watchBtn: {
-    ua: 'Дивитися',
+    uk: 'Дивитися',
     en: 'Watch',
   },
   queue: {
-    ua: 'Черга',
+    uk: 'Черга',
     en: 'queue',
   },
 };
@@ -86,17 +86,17 @@ const langUA = document.querySelector('.jsUA');
 const langUK = document.querySelector('.jsUK');
 
 openBgButton.addEventListener('click', openBgLang);
-langUA.addEventListener('click', changeURLLanguageUA);
-langUK.addEventListener('click', changeURLLanguageUK);
+langUA.addEventListener('click', changeURLLanguageUK);
+langUK.addEventListener('click', changeURLLanguageEN);
 
-function changeURLLanguageUA() {
+function changeURLLanguageUK() {
   // ? Перезаписывает нынешний hash в локальное хранилище ?
-  location.href = window.location.pathname + '#' + 'ua';
-  setItem: localStorage.setItem('localStorageHash', 'ua');
+  location.href = window.location.pathname + '#' + 'uk';
+  setItem: localStorage.setItem('localStorageHash', 'uk');
   changeLanguage();
   closeBgLang();
 }
-function changeURLLanguageUK() {
+function changeURLLanguageEN() {
   // ? Перезаписывает нынешний hash в локальное хранилище ?
   location.href = window.location.pathname + '#' + 'en';
   setItem: localStorage.setItem('localStorageHash', 'en');

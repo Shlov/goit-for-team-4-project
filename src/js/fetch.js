@@ -24,14 +24,9 @@ export default class NewsApiService {
     try {
       // ? language ?
       const currentHash = localStorage.getItem('localStorageHash');
-      let currentLanguage;
-      if (currentHash == 'en') {
-        currentLanguage = 'en';
-      } else if (currentHash == 'ua') {
-        currentLanguage = 'uk';
-      }
       // ? language ?
-      const url = `${BASE_URL}movie/${id}?api_key=${API_KEY}&language=${currentLanguage}`;
+
+      const url = `${BASE_URL}movie/${id}?api_key=${API_KEY}&language=${currentHash}`;
       const response = await axios.get(url);
       return response.data;
     } catch (error) {
