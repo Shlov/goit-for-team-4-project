@@ -67,13 +67,20 @@ function checkLocalStorageHash() {
 
 const openBgButton = document.querySelector('.jsBgLangOpen');
 const langList = document.querySelector('.jsLangList');
+console.log(openBgButton);
 
 // ? Открыть/закрыть список языков ?
 function openBgLang() {
   langList.classList.toggle('lang-hidden');
+  langList.classList.toggle('lang-list-show');
+
+  openBgButton.classList.toggle('lang-hidden');
 }
 function closeBgLang() {
   langList.classList.add('lang-hidden');
+  langList.classList.toggle('lang-list-show');
+  
+  openBgButton.classList.toggle('lang-hidden');
 }
 // ? Флажки языков ?
 const langUA = document.querySelector('.jsUA');
