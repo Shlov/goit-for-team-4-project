@@ -1,1 +1,24 @@
-<h2>Header</h2>
+<header class="header-library">
+  <nav class="header-library-nav container">
+    <div class="nav-logo">
+      <a class="nav-logo__item" href="index.html">
+        <svg width="24" height="24" aria-label="Логотип">
+          <use class="menu-button__menu" href="./images/symbol.svg#logo"></use>
+        </svg>
+      </a>
+      <a class="nav-logo__item nav-logo-filmoteka" href="index.html"
+        >Filmoteka</a
+      >
+    </div>
+    <ul class="nav-menu">
+      <li class="list"><a href="index.html" class="nav-menu__link">home</a></li>
+      <li class="list">
+        <a href="library.html" class="nav-menu__link active">my library</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="btn-menu container">
+    <button class="btn-watch js-watch">watch</button>
+    <button class="btn-queue js-queue active">queue</button>
+  </div>
+</header>
