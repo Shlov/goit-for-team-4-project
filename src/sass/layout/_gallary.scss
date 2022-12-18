@@ -18,101 +18,111 @@
 
 /* -------- FILM CARD -------- */
 .card {
+
+  // position: relative;
+  width: 280px;
+  height: 440px;
   transition: 0.5s linear;
 
-  border-radius: 5px;
-  padding: 5px;
-  padding-bottom: 10px;
+  @include mq(tab) {
+    width: 336px;
+    height: 495px;
+  }
+
+
+  //  @media screen and (min-width: 1200px) {
+  //   .card {
+  //     width: 395px;
+  //       height: 634px;
+  //   }
+  // }
+
+
+  @include mq(desk) {
+    width: 395px;
+    height: 634px;
+  }
+
+  &:hover,
+  &:focus {
+    transform: scale(1.05);
+    // box-shadow: 4px 3px 12px -1px rgba(255, 107, 8, 0.5);
+  }
 }
 
-.card:hover,
-.card:focus {
-  transform: scale(1.05);
-  box-shadow: 4px 3px 12px -1px rgba(255, 107, 8, 0.5);
+.card__wrap {
+  @include mq(tab) {
+    display: block;
+  }
+
 }
 
-.card-img {
-  width: 100%;
-  height: 100%;
+.card__img {
+  width: 280px;
+  height: 398px;
+  margin-bottom: 8px;
 
-  border-radius: 5px;
+  @include mq(tab) {
+    width: 336px;
+    height: 455px;
+  }
 
-  object-fit: cover;
-
-  margin-bottom: 10px;
-  cursor: pointer;
+  @include mq(desk) {
+    width: 394px;
+    height: 574px;
+  }
 }
 
-.card-img:hover,
-.card-img:focus {
-  border-radius: initial;
-}
-
-.film {
-  font-family: 'Roboto';
-  font-size: 12px;
-  line-height: 1.34;
+.card__name {
   font-weight: 500;
-  color: var(--cl-accent);
-}
-
-.film-title {
   font-size: 12px;
-  font-weight: 500;
-  line-height: 1.34;
-  color: #000;
+  line-height: calc(14 / 12);
+  color: black;
   text-transform: uppercase;
+
+  @include mq(tab) {
+    line-height: calc(16 / 12);
+  }
+
+  @include mq(desk) {
+    font-size: 20px;
+    line-height: calc(24 / 20);
+  }
 }
 
-.desc-wraper {
-  display: flex;
-  justify-content: flex-start;
+.card__info {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(16 / 12);
+  color: #FF6B08;
+  text-transform: uppercase;
+
+  @include mq(tab) {
+    line-height: calc(16 / 12);
+  }
+
+  @include mq(desk) {
+    font-size: 20px;
+    line-height: calc(24 / 20);
+  }
 }
 
-.film-line {
-  margin-right: 2px;
+// .card__rating {
+//   display: none;
+// }
+
+.button-youtube {
+  position: absolute;
+  z-index: 1;
+  width: 275px;
+  height: 40px;
   margin-left: 2px;
-}
-
-.film-release {
-  margin-right: 10px;
-}
-
-.film-average {
-  display: block;
-  background-color: var(--cl-accent);
-  color: #fff;
-
-  padding: 0 9px;
-  border-radius: 5px;
-
-  &.is-hidden {
-    display: none;
-}
-}
-
-@media screen and (max-width: 767px) {
-  .card {
-    margin-bottom: 20px;
-  }
-}
-
-@media screen and (min-width: 768px) {
-  .card {
-    display: flex;
-    flex-wrap: wrap;
-    flex-basis: calc(100% / 2 - 30px);
-    margin-top: 30px;
-    margin-left: 30px;
-  }
-
-  .card-img {
-    height: 398px;
-  }
-}
-
-@media screen and (min-width: 1024px) {
-  .card {
-    flex-basis: calc(100% / 3 - 30px);
-  }
+  background-repeat: no-repeat;
+  cursor: pointer;
+  border: 0;
+  outline: none;
+  background-image: url(../..//..//src/images/icons8-youtube-play.svg);
+  background-color: initial;
+  // top: 50%;
+  //   left: 50%;
 }
