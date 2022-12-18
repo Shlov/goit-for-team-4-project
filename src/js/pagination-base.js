@@ -2,6 +2,7 @@
 import createTypicalPaginationNavigation from './pagination-create-typical-nav';
 import createMobilePaginationNavigation from './pagination-create-mobile-nav';
 import NewsApiService from './fetch';
+import renderGalleryFilms from './render-top-films';
 
 // Create starting pagination panel
 const startFetch = new NewsApiService();
