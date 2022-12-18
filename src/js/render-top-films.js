@@ -93,8 +93,6 @@ function renderGalleryFilms(cards) {
       title,
       vote_average,
     } = card;
-    
-    
     return  `<li class="card card-js" data-id="${id}"> <div>
     <button data-id="${id}" class="button-youtube"></button>
   </div><div class="card__wrap">
