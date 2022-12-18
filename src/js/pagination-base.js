@@ -2,7 +2,7 @@
 import createTypicalPaginationNavigation from './pagination-create-typical-nav';
 import createMobilePaginationNavigation from './pagination-create-mobile-nav';
 import NewsApiService from './fetch';
-import renderGalleryFilms from './render-top-films';
+import { renderGalleryFilms } from './render-gallery-films';
 
 // Create starting pagination panel
 const startFetch = new NewsApiService();
@@ -10,6 +10,7 @@ startFetch.fetchPopularMovie().then(data => changeViewportAndData(data));
 
 // Link on HTML / DOM elements
 const paginationRef = document.querySelector('.js-pagination');
+const imageGallaryRef = document.querySelector('.film-list')
 
 // Support pagination data
 let paginationData = {
@@ -27,6 +28,7 @@ let paginationData = {
 
 // Here starting panel pagination
 function changeViewportAndData(data) {
+  imageGallaryRef.innerHTML = '';
   let newData;
   if (!data.total_results) {
     return;
@@ -76,27 +78,29 @@ function onPaginationNavigationClick(evt) {
       name === 'first-page' ||
       name === 'last-page'
     ) {
-      startFetch.page = textContent;
+      startFetch.queryPage = textContent;
       paginationData.page = textContent;
+      imageGallaryRef.innerHTML = '';
       startFetch.fetchPopularMovie().then(data => {
-          changeViewportAndData(data);
-        //   renderGalleryFilms(data.results);
+        changeViewportAndData(data);
+        renderGalleryFilms(data.results);
       });
     } else if (name === 'pre-page') {
       paginationData.page -= 1;
-      startFetch.page = paginationData.page;
-        startFetch.fetchPopularMovie().then(data => {
-            changeViewportAndData(data);
-            //   renderGalleryFilms(data.results);
-        });
+      startFetch.queryPage = paginationData.page;
+      imageGallaryRef.innerHTML = '';
+      startFetch.fetchPopularMovie().then(data => {
+        changeViewportAndData(data);
+        renderGalleryFilms(data.results);
+      });
     } else if (name === 'next-page') {
       paginationData.page += 1;
-      startFetch.page = paginationData.page;            
+      startFetch.queryPage = paginationData.page;
+      imageGallaryRef.innerHTML = '';
       startFetch.fetchPopularMovie().then(data => {
-                changeViewportAndData(data);
-                //   renderGalleryFilms(data.results);
-            });
+        changeViewportAndData(data);
+        renderGalleryFilms(data.results);
+      });
     }
   }
 }
-
