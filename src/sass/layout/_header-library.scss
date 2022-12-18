@@ -98,6 +98,11 @@
     list-style-type: none;
     cursor: pointer;
 }
+.nav-menu__link-btn{
+    padding: 0px;
+    background: none;
+    border: none;
+}
 
 .nav-menu__link.active::after {
     content: '';
@@ -136,3 +141,4 @@
         background-color: var(--cl-accent);
     }
 }
+
