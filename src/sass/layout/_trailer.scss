@@ -1,0 +1,21 @@
+.video_frame {
+  position: fixed;
+  z-index: 10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: auto;
+
+  height: 240px;
+  width: 280px;
+
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    height: 552px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 806px;
+    height: 558px;
+  }
+}
