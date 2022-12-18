@@ -4,7 +4,8 @@
     padding-right: 20px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 10px;
+    // padding-top: 10px;
+    // будь - ласка перенести це з загального контейнеру у власний!
     
     
     @include mq(mob) {
@@ -12,7 +13,8 @@
     }
     @include mq(mob-only)
     {
-        padding-top: 20px;
+        // padding-top: 20px;
+        // будь - ласка перенести це з загального контейнеру у власний!
     }
 
     @include mq(tab) {

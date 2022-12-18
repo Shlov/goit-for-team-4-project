@@ -1,0 +1,130 @@
+.basicLightbox {
+    overflow-y: scroll;
+}
+
+.basicLightbox__placeholder {
+    position: absolute;
+    top: 10%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    width: 280px;
+    background-color: white;
+    border-radius: 15px;
+
+    @media screen and (min-width: 420px) and (max-width: 767px) {
+        top: 5%;
+        width: 360px;
+    }
+
+    @media screen and (min-width: 768px) {
+        width: 500px;
+        top: 5%;
+    }
+
+    @media screen and (min-width: 1024px) {
+        width: 620px;
+    }
+}
+
+.team-title {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    max-width: 600px;
+    margin: 5px auto;
+    border-bottom: 5px solid;
+    border-color: #ff6b08;
+    transition: transform 300ms, linear;
+
+    @media screen and (min-width: 768px) {
+        font-size: 40px;
+    }
+
+    &:hover,
+    &:focus {
+        transform: scale(1.1);
+    }
+}
+
+.logogoit {
+    display: block;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    width: 20px;
+    height: 20px;
+    background-image: url(../images/favicon.png);
+
+    @media screen and (min-width: 768px) {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+.team-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+.team-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px;
+    width: calc((100% - 80px) / 2);
+
+    @media screen and (min-width: 768px) {
+        width: calc((100% - 120px) / 3);
+    }
+
+    @media screen and (min-width: 1024px) {
+        margin: 20px;
+        width: calc((100% - 160px) / 3);
+    }
+}
+
+.team-image {
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 50%;
+}
+
+.team-name {
+    margin-bottom: 5px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+.team-role {
+    font-family: 'Roboto', sans-serif;
+    color: #ff6b08;
+
+    @media screen and (max-width: (768px - 1)) {
+        font-size: 14px;
+    }
+}
+
+.team-git {
+    position: absolute;
+    cursor: pointer;
+    right: -10%;
+
+    transform: scale(1);
+    transition: transform 300ms, linear;
+
+    &:hover,
+    &:focus {
+        transform: scale(1.5);
+    }
+}
+
+.modal-close-btn {
+    background-color: #c0c0c0;
+}

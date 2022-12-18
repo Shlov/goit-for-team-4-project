@@ -3,3 +3,4 @@ import './js/modal';
 import './js/pagination-base';
 import './js/loader';
 import './js/render-top-films';
+import './js/for-teams';
