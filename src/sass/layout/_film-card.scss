@@ -1,31 +1,37 @@
 .card {
-  // position: relative;
-    width: 280px;
-  height: 438px;
+
+   // position: relative;
+  width: 280px;
+  height: 440px;
+  transition: 0.5s linear;
 
   @include mq(tab) {
     width: 336px;
       height: 495px;
     }
   
-            @include mq(desk) {
-            width: 395px;
-              height: 634px;
-            }
 
-  // &__img {
+      //  @media screen and (min-width: 1200px) {
+      //   .card {
+      //     width: 395px;
+      //       height: 634px;
+      //   }
+      // }
 
-  // }
-  // &__name {
 
-  // }
-  // &__info {
+@include mq(desk)
+   {
+    width: 395px;
+    height: 634px;
+ }
 
-  // }
-  // &__rating {
-
-  // }
+&:hover,
+&:focus {
+ transform: scale(1.05);
+  // box-shadow: 4px 3px 12px -1px rgba(255, 107, 8, 0.5);
+ }
 }
+
 .card__wrap {
   @include mq(tab) {
     display: block;
@@ -34,7 +40,7 @@
 }
 .card__img {
   width: 280px;
-  min-height: 398px;
+  height: 398px;
   margin-bottom: 8px;
     @include mq(tab) {
         width: 336px;
@@ -78,7 +84,9 @@
         line-height: calc(24 / 20);
       }
 }
-
+.card__rating {
+display: none;
+}
 
 .button-youtube {
   position: absolute;
