@@ -61,6 +61,7 @@
   border-radius: 5px;
   width: 240px;
   height: 357px;
+  // overflow: hidden;
   margin-bottom: 20px;
   @include mq('tab') {
     width: 264px;
@@ -72,6 +73,21 @@
     width: 375px;
     height: 478px;
     margin-right: 16px;
+  }
+}
+.modal__img {
+  width: 240px;
+  height: 357px;
+  border-radius: 5px;
+  @include mq('tab') {
+    width: 264px;
+    height: 374px;
+    border-radius: 5px;
+  }
+  @include mq('desk') {
+    width: 375px;
+    height: 478px;
+    border-radius: 5px;
   }
 }
 .modal__item {
