@@ -12,39 +12,44 @@ if (card) {
 
 function onOpenModal(event) {
   const selectedMovie = event.target.closest('li');
+  // Получаю id
   const selectedMovieId = Number(selectedMovie.getAttribute('data-id'));
 
   if (event.target.nodeName !== 'BUTTON') {
+    // Открываю окно
     openModal();
     //Получение данных о фильме в модалку
     newData.getFilmDetails(selectedMovieId).then(data => {
       renderModalContent(data);
       const closeBtn = document.querySelector('.js-close');
       closeBtn.addEventListener('click', onCloseModal);
-
-      document.addEventListener('keydown', onCloseModal);
+      document.addEventListener('keydown', onEscBtn);
+      document.addEventListener('click', onBackDrop);
     });
   }
 }
 function openModal() {
-  modal.classList.remove('is-hidden');
+  // Тут бы спинер добавить
+  setTimeout(() => {
+    modal.classList.remove('is-hidden');
+  }, 300);
 }
 
 function onCloseModal() {
   modal.classList.add('is-hidden');
 }
 
-function offModalLogInForClickBeackdrop(event) {
-  if (event.target === backdropLogIn) {
-    // onCloseModal();
+function onBackDrop(event) {
+  if (event.target === modal) {
+    onCloseModal();
   }
 }
 
-// function offModalLogInForEscape(event) {
-//   if (event.key === 'Escape') {
-//     onCloseModal();
-//   }
-// }
+function onEscBtn(event) {
+  if (event.key === 'Escape') {
+    onCloseModal();
+  }
+}
 
 // Генерирование жанра
 
@@ -87,7 +92,7 @@ const murkupMovie = ({
       </svg>
     </button>
   <div class="modal__sidebar--left">
-      <img class="modal__img" src="${poster_path}" alt="" />
+      <img class="modal__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}"width="395" height="574" />
     </div>
 
     <div class="modal__sidebar--right">
@@ -121,16 +126,12 @@ const murkupMovie = ({
       </div>
     </div>`;
 };
-// return murkupMovie;
 
 // ${genresConverting(genre_ids)}
 
 function renderModalContent(data) {
   cardContainer.innerHTML = murkupMovie(data);
 }
-// // const cardsId = event.target.closest('li');
-// // const data = await moviesApiService.getFilmDetails(cardsId.id);
-// // const trailer = await moviesApiService.getFilmVideo(cardsId.id);
 
 const genresInfo = [
   { id: 28, name: 'Action' },
