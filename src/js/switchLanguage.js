@@ -28,12 +28,20 @@ const langArr = {
     ua: 'Мова',
     en: 'Language',
   },
+  watchBtn: {
+    ua: 'Дивитися',
+    en: 'Watch',
+  },
+  queue: {
+    ua: 'Черга',
+    en: 'queue',
+  },
 };
 
 if (localStorage.getItem('localStorageHash')) {
   const currentHash = localStorage.getItem('localStorageHash');
   document.querySelector('title').innerHTML = langArr['webTitle'][currentHash];
-  
+
   // ? Меняет на домашней странице placeholder в input ?
   const searchBar = document.querySelector('.inpt-js');
   if (searchBar) {
