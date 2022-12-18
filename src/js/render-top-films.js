@@ -1,6 +1,8 @@
 import newsApiService from './fetch';
 import axios from 'axios';
 export { renderGalleryFilms };
+import { addListenerBtnYouTube } from './trailer';
+
 export const genresInfo = [
   { id: 28, name: 'Action' },
   { id: 12, name: 'Adventure' },
@@ -50,6 +52,7 @@ const ApiService = new newsApiService();
 ApiService.fetchPopularMovie().then(data => {
     console.dir(data.results);
     renderGalleryFilms(data.results);
+
 });
 
 const refs = {
@@ -100,6 +103,7 @@ function renderGalleryFilms(cards) {
       <p class="card__info lng-cardInfo"> ${change(genresInfo, genre_ids)} | ${release_date.split('-')[0]}<span class="card__rating"> ${vote_average} </span></p></div>
   </li>` }).join('')
   refs.card.insertAdjacentHTML('beforeend', markup);
+  addListenerBtnYouTube();
 }
 
 
