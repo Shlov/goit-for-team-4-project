@@ -3,6 +3,8 @@
 // Values
 
 
-function typeOfFetchForPAgination() {
-    if
+function typeOfFetchForPAgination(operationID) {
+    if (operationID===0) {
+        
+    }
 }

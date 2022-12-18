@@ -28,7 +28,7 @@ let paginationData = {
 
 // Here starting panel pagination
 function changeViewportAndData(data) {
-  imageGallaryRef.innerHTML = '';
+  // imageGallaryRef.innerHTML = '';
   let newData;
   if (!data.total_results) {
     return;
@@ -45,7 +45,6 @@ function changeViewportAndData(data) {
   }
 
   paginationData = newData;
-
   paginationRef.innerHTML = '';
   if (window.innerWidth >= 480) {
     createTypicalPaginationNavigation(newData); // Viewport width for mobile device
