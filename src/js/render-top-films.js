@@ -31,7 +31,7 @@ function renderGalleryFilms(cards) {
     return  `<li class="card card-js" data-id="${id}"> <div>
     <button data-id="${id}" class="button-youtube"></button>
   </div><div class="card__wrap">
-      <img class="card__img" src="${poster_path}" alt="${original_title}" width="395" height="574">
+      <img class="card__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}" width="395" height="574">
       <h3 class="card__name lng-cardName">${original_title}</h3>
       <p class="card__info lng-cardInfo"> ${genre_ids} | ${release_date}<span class="card__rating"> ${vote_average} </span></p></div>
   </li>` }).join('')
