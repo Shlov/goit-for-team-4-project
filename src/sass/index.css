@@ -206,6 +206,26 @@ h1, h2, h3, h4, h5, h6, p {
   }
 }
 
+.modal__img {
+  width: 240px;
+  height: 357px;
+  border-radius: 5px;
+}
+@media screen and (min-width: 768px) {
+  .modal__img {
+    width: 264px;
+    height: 374px;
+    border-radius: 5px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .modal__img {
+    width: 375px;
+    height: 478px;
+    border-radius: 5px;
+  }
+}
+
 .modal__item {
   display: flex;
   margin-bottom: 8px;
@@ -751,6 +771,7 @@ h1, h2, h3, h4, h5, h6, p {
   background-color: transparent;
   border: none;
   padding: 5px;
+  cursor: pointer;
 }
 
 .form-icon {
@@ -871,7 +892,7 @@ h1, h2, h3, h4, h5, h6, p {
   display: flex;
   gap: 39px;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-end;
 }
 
 .nav-menu__link {
