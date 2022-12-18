@@ -153,11 +153,13 @@
   background-color: transparent;
   border: none;
   padding: 5px;
+  cursor: pointer;
 }
 
 .form-icon {
   // fill: var(--cl-white);
   color: var(--cl-white);
+ 
 }
 .nav__item:last-child {
   position: relative;
