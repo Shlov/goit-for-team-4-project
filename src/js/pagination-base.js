@@ -62,7 +62,7 @@ function onChangeWindow(evt) {
   }
 }
 
-// Behavior pagination panel and render image(s) on click
+// Behavior pagination panel and render image(s) when clicking on the button
 paginationRef.addEventListener('click', onPaginationNavigationClick);
 function onPaginationNavigationClick(evt) {
   const { tagName, name, textContent } = evt.target;
