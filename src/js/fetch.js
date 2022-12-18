@@ -13,7 +13,7 @@ export default class NewsApiService {
   async fetchPopularMovie() {
     try {
       const url = `${BASE_URL}movie/popular?api_key=${API_KEY}&page=${this.page}`;
-      const response = await axios.get(url); 
+      const response = await axios.get(url);
       return response.data;
     } catch (error) {
       console.log(error);
@@ -29,6 +29,12 @@ export default class NewsApiService {
       console.log(error);
     }
   }
+  incrementPage() {
+    this.page += 1;
+  }
+  decrementPage() {
+    this.page -= 1;
+  }
   resetPage() {
     this.page = 1;
   }
@@ -37,11 +43,5 @@ export default class NewsApiService {
   }
   set query(newQuery) {
     this.searchQuery = newQuery;
-  }
-  get queryPage() {
-    return this.page;
-  }
-  set queryPage(newPage) {
-    this.page = newPage;
   }
 }
