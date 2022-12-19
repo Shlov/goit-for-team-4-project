@@ -1,5 +1,6 @@
 import newsApiService from './fetch';
 import { changeLanguage } from './switchLanguage';
+import NewsApiService from './fetch';
 const newData = new newsApiService();
 
 const cardContainer = document.querySelector('.modal-window');
@@ -143,7 +144,8 @@ const murkupMovie = ({
 
 function renderModalContent(data) {
   cardContainer.innerHTML = murkupMovie(data);
-  changeLanguage()
+  NewsApiService();
+  changeLanguage();
 }
 
 const genresInfo = [
