@@ -26,7 +26,7 @@ export default class NewsApiService {
   // Запрос детальной информации по id для модалки
   async getFilmDetails(id) {
     try {
-      const url = `${BASE_URL}movie/${id}?api_key=${API_KEY}&language=${this.lang}`;
+      const url = `${BASE_URL}movie/${id}?api_key=${API_KEY}&language=${currentHash}`;
       const response = await axios.get(url);
       return response.data;
     } catch (error) {
