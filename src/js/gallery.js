@@ -1,6 +1,6 @@
 
 // import { getFromStorage } from '';
-import { renderGalleryFilms } from './renderGalleryFilms';
+import { renderGalleryFilms } from './render-Gallery-Films';
 
 const getFromStorage = key => {
   try {
