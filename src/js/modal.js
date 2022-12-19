@@ -74,6 +74,7 @@ const murkupMovie = ({
   vote_average,
   vote_count,
   title,
+  original_title,
   genre_ids,
   overview,
 }) => {
@@ -117,7 +118,7 @@ const murkupMovie = ({
     </li>
     <li class="modal__item">
       <p class="modal__heading">Original Title</p>
-      <p class="modal__txt">${title}</p>
+      <p class="modal__txt">${original_title}</p>
     </li>
     <li class="modal__item">
       <p class="modal__heading">Genre</p>
