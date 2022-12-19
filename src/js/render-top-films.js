@@ -40,8 +40,8 @@ function renderGalleryFilms(cards) {
           width="395"
           height="574"
         />
-        <h3 class="card__name lng-cardName">${original_title}</h3>
-        <p class="card__info lng-cardInfo">
+        <h3 class="card__name">${title}</h3>
+        <p class="card__info">
           ${genre_ids} | ${
         release_date.split('-')[0]
       }<span class="card__rating">
