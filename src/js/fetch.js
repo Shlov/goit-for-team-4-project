@@ -12,7 +12,9 @@ export default class NewsApiService {
   // Запрос популярных фильмов на главную страницу
   async fetchPopularMovie() {
     try {
-      const url = `${BASE_URL}movie/popular?api_key=${API_KEY}&page=${this.page}`;
+      const currentHash = localStorage.getItem('localStorageHash');
+
+      const url = `${BASE_URL}movie/popular?api_key=${API_KEY}&language=${currentHash}&page=${this.page}`;
       const response = await axios.get(url);
       return response.data;
     } catch (error) {

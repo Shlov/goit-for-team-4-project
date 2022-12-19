@@ -41,7 +41,7 @@ checkLocalStorageHash();
 
 // ? Сохранение языка при переходе на новую страницу ?
 function checkLocalStorageHash() {
-  const currentHash = localStorage.getItem('localStorageHash');
+   const currentHash = localStorage.getItem('localStorageHash');
   if (currentHash) {
     document.querySelector('title').innerHTML =
       langArr['webTitle'][currentHash];
@@ -128,22 +128,3 @@ function changeLanguage() {
     }
   }
 }
-// ! fetch !
-
-// import axios from 'axios';
-// async function fetchImages() {
-//   try {
-//     const currentHash = localStorage.getItem('localStorageHash');
-//     const API_KEY = 'ab57a8d74b0df3fdba80a78e42f32d17';
-//     const response = await axios.get(
-//       `https://api.themoviedb.org/3/movie/15?api_key=${API_KEY}&language=uk`
-//     );
-//     console.log(response.data);
-//     return response.data;
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-// fetchImages();
-
-// const currentHash = localStorage.getItem('localStorageHash');
