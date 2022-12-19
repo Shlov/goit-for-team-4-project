@@ -36,12 +36,32 @@ const langArr = {
     uk: 'Черга',
     en: 'queue',
   },
+  vote: {
+    uk: 'Оцiнка / оцiнки',
+    en: 'Vote / votes',
+  },
+  popular: {
+    uk: 'Популярнiсть',
+    en: 'Popularity',
+  },
+  originalTitle: {
+    uk: 'Оригінальна назва',
+    en: 'Original title',
+  },
+  genre: {
+    uk: 'Жанр',
+    en: 'Genres',
+  },
+  about: {
+    uk: 'Про фiльм',
+    en: 'About',
+  },
 };
 checkLocalStorageHash();
 
 // ? Сохранение языка при переходе на новую страницу ?
 function checkLocalStorageHash() {
-   const currentHash = localStorage.getItem('localStorageHash');
+  const currentHash = localStorage.getItem('localStorageHash');
   if (currentHash) {
     document.querySelector('title').innerHTML =
       langArr['webTitle'][currentHash];
