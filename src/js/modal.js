@@ -1,5 +1,6 @@
 import newsApiService from './fetch';
-import { test } from './local_storage';
+
+import { exportIdToLocalStorage } from './local_storage';
 import { murkupMovie } from './markupModal';
 
 const newData = new newsApiService();
