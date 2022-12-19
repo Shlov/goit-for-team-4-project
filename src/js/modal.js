@@ -1,4 +1,5 @@
 import newsApiService from './fetch';
+import { changeLanguage } from './switchLanguage';
 import { test } from './local_storage';
 import { murkupMovie } from './markupModal';
 
@@ -34,6 +35,7 @@ function onOpenModal(event) {
 }
 function renderModalContent(data) {
   cardContainer.innerHTML = murkupMovie(data);
+  changeLanguage();
 }
 function openModal() {
   // Тут бы спинер добавить

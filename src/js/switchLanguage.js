@@ -36,6 +36,7 @@ const langArr = {
     uk: 'Черга',
     en: 'queue',
   },
+  // ? modal window ?
   vote: {
     uk: 'Оцiнка / оцiнки',
     en: 'Vote / votes',
