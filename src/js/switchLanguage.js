@@ -123,7 +123,7 @@ function changeURLLanguageEN() {
   changeLanguage();
   closeBgLang();
 }
-function changeLanguage() {
+export function changeLanguage() {
   let hash = window.location.hash;
   // ? Выделяем буквы из hash ?
   hash = hash.substr(1);
@@ -140,6 +140,7 @@ function changeLanguage() {
   if (searchBar) {
     searchBar.placeholder = langArr['movieSearch'][hash];
   }
+
   // ? Берёт перевод на слова, которые есть в массиве "langArr" ?
   for (let key in langArr) {
     let elem = document.querySelector('.lng-' + key);
