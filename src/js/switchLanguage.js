@@ -57,6 +57,14 @@ const langArr = {
     uk: 'Про фiльм',
     en: 'About',
   },
+  watchedBtn: {
+    uk: 'Додати до переглянутого',
+    en: 'Add to watched',
+  },
+  queueBtn: {
+    uk: 'Додати до черги',
+    en: 'Add to queue',
+  },
 };
 checkLocalStorageHash();
 
