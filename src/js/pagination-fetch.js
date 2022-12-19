@@ -104,7 +104,7 @@ function onPaginationNavigationClick(evt) {
 // Fetch function for pagination
 async function paginationFetch(urlFetch, num) {
   try {
-    firstIndex = urlFetch.indexOf('page=') + 5;
+    let firstIndex = urlFetch.indexOf('page=') + 5;
     let clipStr = urlFetch.slice(0, firstIndex);
     const url = `${clipStr + num}`;
     const response = await axios.get(url);
