@@ -1,40 +1,61 @@
 // ? Допустимый hash
-const allLanguages = ['en', 'ua'];
+const allLanguages = ['en', 'uk'];
 
 // ? Массив переведённых слов ?
 const langArr = {
   webTitle: {
-    ua: 'Фільмотека',
+    uk: 'Фільмотека',
     en: 'Filmoteka',
   },
 
   headerTitle: {
-    ua: 'Фільмотека',
+    uk: 'Фільмотека',
     en: 'Filmoteka',
   },
   homepage: {
-    ua: 'Домашня сторінка',
+    uk: 'Домашня сторінка',
     en: 'Home',
   },
   myLibrary: {
-    ua: 'Моя бібліотека',
+    uk: 'Моя бібліотека',
     en: 'My library',
   },
   movieSearch: {
-    ua: 'Пошук фильмів',
+    uk: 'Пошук фильмів',
     en: 'Movie search',
   },
   languageChoose: {
-    ua: 'Мова',
+    uk: 'Мова',
     en: 'Language',
   },
   watchBtn: {
-    ua: 'Дивитися',
+    uk: 'Дивитися',
     en: 'Watch',
   },
   queue: {
-    ua: 'Черга',
+    uk: 'Черга',
     en: 'queue',
+  },
+  // ? modal window ?
+  vote: {
+    uk: 'Оцiнка / оцiнки',
+    en: 'Vote / votes',
+  },
+  popular: {
+    uk: 'Популярнiсть',
+    en: 'Popularity',
+  },
+  originalTitle: {
+    uk: 'Оригінальна назва',
+    en: 'Original title',
+  },
+  genre: {
+    uk: 'Жанр',
+    en: 'Genres',
+  },
+  about: {
+    uk: 'Про фiльм',
+    en: 'About',
   },
 };
 checkLocalStorageHash();
@@ -71,33 +92,39 @@ const langList = document.querySelector('.jsLangList');
 // ? Открыть/закрыть список языков ?
 function openBgLang() {
   langList.classList.toggle('lang-hidden');
+  langList.classList.toggle('lang-list-show');
+
+  openBgButton.classList.toggle('lang-hidden');
 }
 function closeBgLang() {
   langList.classList.add('lang-hidden');
+  langList.classList.toggle('lang-list-show');
+
+  openBgButton.classList.toggle('lang-hidden');
 }
 // ? Флажки языков ?
 const langUA = document.querySelector('.jsUA');
 const langUK = document.querySelector('.jsUK');
 
 openBgButton.addEventListener('click', openBgLang);
-langUA.addEventListener('click', changeURLLanguageUA);
-langUK.addEventListener('click', changeURLLanguageUK);
+langUA.addEventListener('click', changeURLLanguageUK);
+langUK.addEventListener('click', changeURLLanguageEN);
 
-function changeURLLanguageUA() {
+function changeURLLanguageUK() {
   // ? Перезаписывает нынешний hash в локальное хранилище ?
-  location.href = window.location.pathname + '#' + 'ua';
-  setItem: localStorage.setItem('localStorageHash', 'ua');
+  location.href = window.location.pathname + '#' + 'uk';
+  setItem: localStorage.setItem('localStorageHash', 'uk');
   changeLanguage();
   closeBgLang();
 }
-function changeURLLanguageUK() {
+function changeURLLanguageEN() {
   // ? Перезаписывает нынешний hash в локальное хранилище ?
   location.href = window.location.pathname + '#' + 'en';
   setItem: localStorage.setItem('localStorageHash', 'en');
   changeLanguage();
   closeBgLang();
 }
-function changeLanguage() {
+export function changeLanguage() {
   let hash = window.location.hash;
   // ? Выделяем буквы из hash ?
   hash = hash.substr(1);
@@ -114,6 +141,7 @@ function changeLanguage() {
   if (searchBar) {
     searchBar.placeholder = langArr['movieSearch'][hash];
   }
+
   // ? Берёт перевод на слова, которые есть в массиве "langArr" ?
   for (let key in langArr) {
     let elem = document.querySelector('.lng-' + key);

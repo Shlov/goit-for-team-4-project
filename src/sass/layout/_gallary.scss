@@ -126,3 +126,21 @@
   // top: 50%;
   //   left: 50%;
 }
+
+.sorry {
+    color: getColor(--cl-accent);
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.string__alert {
+    line-height: calc(14px / 17px);
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.alert__message {
+    text-align: center;
+    padding-top: 60px;
+    padding-bottom: 60px;
+}

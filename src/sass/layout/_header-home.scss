@@ -1,6 +1,7 @@
 .header {
+  
   height: 230px;
-  max-width: 1600px;
+  max-width: 100%;
   margin-left: auto;
   margin-right: auto;
 
@@ -39,6 +40,7 @@
 }
 
 .header__container {
+  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -49,6 +51,11 @@
     margin-bottom: 46px;
   }
 }
+
+// .nav {
+//   display: flex;
+//   justify-content: end;
+// }
 
 .nav__list {
   font-family: var(--main-font);
@@ -89,7 +96,8 @@
 }
 
 .logo {
-  display: inline-flex;
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
   gap: 8px;
   margin-left: 22px;
@@ -159,11 +167,16 @@
 .form-icon {
   // fill: var(--cl-white);
   color: var(--cl-white);
- 
 }
 .nav__item:last-child {
   position: relative;
   cursor: pointer;
+
+  & p {
+    transition-property: opacity;
+    transition-duration: 250ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
 }
 .lang-list {
   position: absolute;
@@ -174,7 +187,7 @@
   flex-direction: column;
   gap: 2px;
 
-  transition-property: opacity;
+  transition-property: opacity, top;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -184,21 +197,67 @@
   & li {
     width: 60px;
   }
-  // &-ua {
-  //   right: -10px;
-  // }
-  // &-uk {
-  //   right: 6px;
-  // }
+  &-show {
+    top: -20px;
+  }
 }
 .lang-list-ua {
   right: -11px;
 }
 .lang-list-uk {
-  right:  6px;
+  right: 6px;
 }
 
 .lang-hidden {
   opacity: 0;
   cursor: auto;
+}
+
+.theme__container {
+  position: absolute;
+  top: 45px;
+  right: 35px;
+  transform: translate(-50%, -50%);
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @media screen and (min-width: 768px) {
+    
+    right: 94px;
+  }
+}
+
+.theme__container .toggle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 40px;
+  height: 20px;
+  background: #ff001b;
+  border-radius: 30px;
+}
+
+.theme__container .toggle .toggle-button {
+  position: absolute;
+  top: 1px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  background: var(--cl-white);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.theme__container .theme__dark {
+  position: absolute;
+  top: 4px;
+  left: 42px;
+  font-family: var(--main-font);
+  font-size: 10px;
+  line-height: calc(12 / 10);
+  color: var(--cl-white);
+  margin-left: 2px;
 }
