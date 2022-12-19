@@ -1,4 +1,6 @@
 import * as basicLightbox from 'basiclightbox';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
+
 let trailer;
 const bodyEl = document.querySelector('body');
 let langTrailer = document.querySelector('.lng-languageChoose');
@@ -49,6 +51,7 @@ function renderTrailer(data, lang) {
 // Открытие окна с трейлером
 
 function openVideoModal(key = 'WHeOZLmXxn8') {
+  Loading.dots({ svgColor: '#FF001B' });
   trailer =
     basicLightbox.create(`<iframe class="video_frame" height="315" src="https://www.youtube.com/embed/${key}"
      title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; 
@@ -57,6 +60,7 @@ function openVideoModal(key = 'WHeOZLmXxn8') {
 
   bodyEl.style.pointerEvents = 'none';
   bodyEl.style.overflowY = 'hidden';
+  Loading.remove(1000);
 }
 
 //   Закрытие по esc и mouse
