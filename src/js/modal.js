@@ -1,5 +1,5 @@
 import newsApiService from './fetch';
-import { test } from './local_storage';
+import { exportIdToLocalStorage } from './local_storage';
 
 const newData = new newsApiService();
 
@@ -26,7 +26,7 @@ function onOpenModal(event) {
       closeBtn.addEventListener('click', onCloseModal);
       document.addEventListener('keydown', onEscBtn);
       document.addEventListener('click', onBackDrop);
-      test(data);
+      exportIdToLocalStorage(data);
     });
   }
 }
