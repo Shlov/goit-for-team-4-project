@@ -1,4 +1,5 @@
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { changeLanguage } from './switchLanguage';
 let dataForLocalStorage = null;
 
 function save(key, value) {
@@ -113,9 +114,11 @@ export function addWatchListActive(id) {
   if (arrCheckValue.includes(id)) {
     btnAddToWatch.textContent = 'REMOVE FROM WATCHED';
     btnAddToWatch.classList.add('js-watched--active');
+    changeLanguage();
   } else {
     btnAddToWatch.textContent = 'ADD TO WATCHED';
     btnAddToWatch.classList.remove('js-watched--active');
+    changeLanguage();
   }
 
   //   btnAddToQueue.textContent = 'Queue';
@@ -142,5 +145,3 @@ export function addQueueListActive(id) {
   //   btnAddToWatch.classList.remove('js-watched--active');
   //   btnAddToQueue.classList.add('js-watched--active');
 }
-
-
