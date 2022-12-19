@@ -19,3 +19,14 @@
     height: 558px;
   }
 }
+
+.js-watched--active {
+  background-color: var(--cl-accent);
+  color: var(--cl-white);
+}
+
+
+.js-watched--deactive {
+  background-color: white;
+  color: black;
+}

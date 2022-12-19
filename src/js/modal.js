@@ -1,4 +1,6 @@
 import newsApiService from './fetch';
+import { changeLanguage } from './switchLanguage';
+import { test } from './local_storage';
 import { murkupMovie } from './markupModal';
 
 const newData = new newsApiService();
@@ -27,11 +29,13 @@ function onOpenModal(event) {
       closeBtn.addEventListener('click', onCloseModal);
       document.addEventListener('keydown', onEscBtn);
       document.addEventListener('click', onBackDrop);
+      test(data);
     });
   }
 }
 function renderModalContent(data) {
   cardContainer.innerHTML = murkupMovie(data);
+  changeLanguage();
 }
 function openModal() {
   // Тут бы спинер добавить
