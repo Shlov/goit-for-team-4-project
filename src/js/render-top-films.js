@@ -1,47 +1,7 @@
 import newsApiService from './fetch';
 import axios from 'axios';
-export { renderGalleryFilms };
 import { addListenerBtnYouTube } from './trailer';
 
-const ApiService = new newsApiService();
-ApiService.fetchPopularMovie().then(data => {
-  console.dir(data.results);
-  renderGalleryFilms(data.results);
-});
-
-const refs = {
-  card: document.querySelector('.film-list'),
-};
-
-function renderGalleryFilms(cards) {
-  const markup = cards
-    .map(card => {
-      const {
-        id,
-        backdrop_path,
-        genre_ids,
-        original_title,
-        overview,
-        popularity,
-        poster_path,
-        release_date,
-        title,
-        vote_average,
-      } = card;
-      return `<li class="card card-js" data-id="${id}"> <div>
-    <button data-id="${id}" class="button-youtube"></button>
-  </div><div class="card__wrap">
-      <img class="card__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}" width="395" height="574">
-      <h3 class="card__name lng-cardName">${original_title}</h3>
-      <p class="card__info lng-cardInfo"> ${genre_ids} | ${
-        release_date.split('-')[0]
-      }<span class="card__rating"> ${vote_average} </span></p></div>
-  </li>`;
-    })
-    .join('');
-  refs.card.insertAdjacentHTML('beforeend', markup);
-  addListenerBtnYouTube();
-}
 
 export const genresInfo = [
   { id: 28, name: 'Action' },
@@ -86,3 +46,52 @@ export const genresInfoUk = [
   { id: 10752, name: 'Військовий' },
   { id: 37, name: 'Вестерн' },
 ];
+
+
+const ApiService = new newsApiService();
+ApiService.fetchPopularMovie().then(data => {
+    console.dir(data.results);
+    renderGalleryFilms(data.results);
+
+});
+
+const refs = {
+  card: document.querySelector('.film-list'),
+};
+
+
+
+function change (genresInfo, genre_ids) {
+  for (const genre_id of genre_ids) {
+    for (const genrInfo of genresInfo) {
+      if (genrInfo.id === genre_id) {
+ return genrInfo.name
+      }
+    }
+  }
+}
+
+export function renderGalleryFilms(cards) {
+  const markup = cards.map(card => {
+    const {
+      id,
+      backdrop_path,
+      genre_ids,
+      original_title,
+      overview,
+      popularity,
+      poster_path,
+      release_date,
+      title,
+      vote_average,
+    } = card;
+    return  `<li class="card card-js" data-id="${id}"> <div>
+    <button data-id="${id}" class="button-youtube"></button>
+  </div><div class="card__wrap">
+      <img class="card__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}" width="395" height="574">
+      <h3 class="card__name lng-cardName">${original_title}</h3>
+      <p class="card__info lng-cardInfo"> ${change(genresInfo, genre_ids)} | ${release_date.split('-')[0]}<span class="card__rating"> ${vote_average} </span></p></div>
+  </li>` }).join('')
+  refs.card.insertAdjacentHTML('beforeend', markup);
+  addListenerBtnYouTube();
+}
