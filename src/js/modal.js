@@ -42,6 +42,7 @@ function openModal() {
 
 function onCloseModal() {
   modal.classList.add('is-hidden');
+  cardContainer.innerHTML = '';
 }
 
 function onBackDrop(event) {

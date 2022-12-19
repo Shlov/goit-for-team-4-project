@@ -57,6 +57,13 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+  transition-duration: 350ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-property: color;
+  &:hover,
+  &:focus {
+    color: var(--cl-accent);
+  }
 }
 .modal__sidebar--left {
   display: block;
