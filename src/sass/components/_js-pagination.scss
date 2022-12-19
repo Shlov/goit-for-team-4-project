@@ -12,8 +12,7 @@
 
     display: flex;
     align-items: center;
-    justify-content: center;
-  
+    justify-content: center;  
     
     font-weight: 500;
     font-size: 12px;
@@ -55,6 +54,6 @@
   }
 }
 
-.js-gray {
-      background-color: var(--cl-secondary);
+.fa-arrow-right, .fa-arrow-left{
+  pointer-events: none;
 }
