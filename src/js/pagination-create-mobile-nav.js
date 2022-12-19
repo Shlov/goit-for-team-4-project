@@ -1,4 +1,4 @@
-import { selectConditionOfButton } from "./pagination-number-button-create"
+import { selectConditionOfButton } from "./pagination-number-button-create";
 
 const paginationRef = document.querySelector('.js-pagination');
 
