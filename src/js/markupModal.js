@@ -26,9 +26,7 @@ const murkupMovie = ({
 <div class="modal__sidebar--left">
   <img
     class="modal__img"
-    src="${imgRender(
-    poster_path
-  )}"
+    src="${imgRender(poster_path)}"
     alt="${original_title}"
     width="395"
     height="574"
@@ -68,7 +66,7 @@ const murkupMovie = ({
       add to queue
     </button>
   </div>
-</div>;
+</div>`;
 };
 
 // Генерирование жанра
