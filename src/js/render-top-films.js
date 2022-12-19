@@ -1,7 +1,7 @@
 import newsApiService from './fetch';
 import axios from 'axios';
-export { renderGalleryFilms };
 import { addListenerBtnYouTube } from './trailer';
+
 
 export const genresInfo = [
   { id: 28, name: 'Action' },
@@ -71,15 +71,7 @@ function change (genresInfo, genre_ids) {
   }
 }
 
-
-// function change2(genre_ids) {
-//   for (let i = 0; i <= genre_ids.length-1; i += 1) {
-//    return change (genresInfo, genre_ids) 
-//   }
-// } 
-
-
-function renderGalleryFilms(cards) {
+export function renderGalleryFilms(cards) {
   const markup = cards.map(card => {
     const {
       id,
