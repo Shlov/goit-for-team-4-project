@@ -3,7 +3,7 @@ import './js/modal';
 import './js/pagination-base';
 import './js/loader';
 import './js/render-top-films';
+import './js/for-teams';
 import './js/scroll';
 import './js/trailer';
 import './js/pagination-fetch';
-
