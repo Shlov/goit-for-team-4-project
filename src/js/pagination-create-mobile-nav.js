@@ -1,3 +1,5 @@
+import { selectConditionOfButton } from "./pagination-number-button-create";
+
 const paginationRef = document.querySelector('.js-pagination');
 
 // Func. for create Pagination
@@ -20,13 +22,13 @@ export default function createMobilePaginationNavigation(data) {
     if (page === 1) {
       paginationElementsLeft = `<button type="button" class="js-pagination__btn js-pagination__btn--block" name="pre-page" disabled><i class="fa-solid fa-arrow-left"></i></button>`;
     } else {
-      paginationElementsLeft = `<button type="button" class="js-pagination__btn js-pagination__btn--active js-grey" name="pre-page"><i class="fa-solid fa-arrow-left"></i></button>`;
+      paginationElementsLeft = `<button type="button" class="js-pagination__btn js-pagination__btn--active" name="pre-page"><i class="fa-solid fa-arrow-left"></i></button>`;
     }
 
     if (page === totalPages) {
       paginationElementsRight = `<button type="button" class="js-pagination__btn js-pagination__btn--block" name="next-page" disabled><i class="fas fa-arrow-right"></i></button>`;
     } else {
-      paginationElementsRight = `<button type="button" class="js-pagination__btn js-pagination__btn--active js-grey" name="next-page"><i class="fas fa-arrow-right"></i></button>`;
+      paginationElementsRight = `<button type="button" class="js-pagination__btn js-pagination__btn--active" name="next-page"><i class="fas fa-arrow-right"></i></button>`;
     }
 
     paginationHtml =
@@ -37,12 +39,12 @@ export default function createMobilePaginationNavigation(data) {
 
     if (page - 3 > 0) {
       paginationElementsLeft = `
-<button type="button" class="js-pagination__btn js-pagination__btn--active js-grey" name="pre-page"><i class="fa-solid fa-arrow-left"></i></button>`;
+<button type="button" class="js-pagination__btn js-pagination__btn--active" name="pre-page"><i class="fa-solid fa-arrow-left"></i></button>`;
     } else {
       if (page === 1) {
         paginationElementsLeft = `<button type="button" class="js-pagination__btn js-pagination__btn--block" name="pre-page" disabled><i class="fa-solid fa-arrow-left"></i></button>`;
       } else {
-        paginationElementsLeft = `<button type="button" class="js-pagination__btn js-pagination__btn--active js-grey" name="pre-page"><i class="fa-solid fa-arrow-left"></i></button>`;
+        paginationElementsLeft = `<button type="button" class="js-pagination__btn js-pagination__btn--active" name="pre-page"><i class="fa-solid fa-arrow-left"></i></button>`;
       }
 
       flag -= 1;
@@ -50,12 +52,12 @@ export default function createMobilePaginationNavigation(data) {
 
     if (totalPages - page > 2) {
       paginationElementsRight = `
-<button type="button" class="js-pagination__btn js-pagination__btn--active js-grey" name="next-page"><i class="fas fa-arrow-right"></i></button>`;
+<button type="button" class="js-pagination__btn js-pagination__btn--active" name="next-page"><i class="fas fa-arrow-right"></i></button>`;
     } else {
       if (page === totalPages) {
         paginationElementsRight = `<button type="button" class="js-pagination__btn js-pagination__btn--block" name="next-page" disabled><i class="fas fa-arrow-right"></i></button>`;
       } else {
-        paginationElementsRight = `<button type="button" class="js-pagination__btn js-pagination__btn--active js-grey" name="next-page"><i class="fas fa-arrow-right"></i></button>`;
+        paginationElementsRight = `<button type="button" class="js-pagination__btn js-pagination__btn--active" name="next-page"><i class="fas fa-arrow-right"></i></button>`;
       }
       flag += 1;
     }
@@ -84,13 +86,3 @@ export default function createMobilePaginationNavigation(data) {
   paginationRef.insertAdjacentHTML('beforeend', paginationHtml);
 }
 
-function selectConditionOfButton(i, page) {
-  let text = '';
-
-  if (i === page) {
-    text = `<button type="button" class="js-pagination__btn js-pagination__btn--current" name="number-page" disabled>${i}</button>`;
-  } else {
-    text = `<button type="button" class="js-pagination__btn js-pagination__btn--active" name="number-page">${i}</button>`;
-  }
-  return text;
-}
