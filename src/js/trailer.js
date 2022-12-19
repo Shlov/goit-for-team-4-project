@@ -65,21 +65,27 @@ function openVideoModal(key = 'WHeOZLmXxn8') {
 
 //   Закрытие по esc и mouse
 function closeTrailerByEsc(event) {
+  Loading.pulse({ svgColor: '#FF001B' });
   if (event.code === 'Escape') {
     trailer.close();
     window.removeEventListener('keydown', closeTrailerByEsc);
   }
   bodyEl.style.pointerEvents = 'auto';
   bodyEl.style.overflowY = 'auto';
+
+  Loading.remove(500);
 }
 
 function closeTrailerByMouse(event) {
+  Loading.pulse({ svgColor: '#FF001B' });
   if (event) {
     trailer.close();
     window.removeEventListener('click', closeTrailerByMouse);
   }
   bodyEl.style.pointerEvents = 'auto';
   bodyEl.style.overflowY = 'auto';
+
+  Loading.remove(500);
 }
 
 // Выбор языка трейлера
