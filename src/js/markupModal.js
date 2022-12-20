@@ -23,9 +23,7 @@ const murkupMovie = ({
       </svg>
     </button>
   <div class="modal__sidebar--left">
-      <img class="modal__img" src="${imgRender(
-        poster_path
-      )}" alt="${original_title}"width="395" height="574" />
+      <img class="modal__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}"width="395" height="574" />
     </div>
 
     <div class="modal__sidebar--right">
@@ -69,15 +67,9 @@ function genresConverting(genres) {
       genreArray.push(genre.name);
     });
 
-    return genreArray.join(', ');
+    return genreArray.join(' / ');
   }
   return 'N/A';
 }
-// Генерирование картинки
-function imgRender(poster_path) {
-  if (poster_path) {
-    return `https://image.tmdb.org/t/p/w500${poster_path}`;
-  }
-  return './src/images/modal/notFound.png';
-}
+
 export { murkupMovie };

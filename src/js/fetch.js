@@ -1,5 +1,4 @@
 import axios from 'axios';
-import {detectedURLForPagination, obtainFetchDataForPagination} from './pagination-fetch';
 
 const BASE_URL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'ab57a8d74b0df3fdba80a78e42f32d17';
@@ -14,9 +13,7 @@ export default class NewsApiService {
   async fetchPopularMovie() {
     try {
       const url = `${BASE_URL}movie/popular?api_key=${API_KEY}&page=${this.page}`;
-      detectedURLForPagination(url);
       const response = await axios.get(url);
-      obtainFetchDataForPagination(response.data);
       return response.data;
     } catch (error) {
       console.log(error);
@@ -38,4 +35,11 @@ export default class NewsApiService {
   set query(newQuery) {
     this.searchQuery = newQuery;
   }
+  get queryPage() {
+    return this.page;
+  }
+  set queryPage(newPage) {
+    this.page = newPage;
+  }
+
 }
