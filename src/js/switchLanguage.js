@@ -1,8 +1,8 @@
 // ? Допустимый hash
 const allLanguages = ['en', 'uk'];
-
+let hash = window.location.hash.substr(1);
 // ? Массив переведённых слов ?
-const langArr = {
+export const langArr = {
   webTitle: {
     uk: 'Фільмотека',
     en: 'Filmoteka',
@@ -57,14 +57,22 @@ const langArr = {
     uk: 'Про фiльм',
     en: 'About',
   },
-  watchedBtn: {
-    uk: 'Додати до переглянутого',
-    en: 'Add to watched',
-  },
-  queueBtn: {
-    uk: 'Додати до черги',
-    en: 'Add to queue',
-  },
+  // watchedBtn: {
+  //   uk: 'Додати до переглянутого',
+  //   en: 'Add to watched',
+  // },
+  // removeWatchedBtn: {
+  //   uk: 'Прибрати iз переглянутих',
+  //   en: 'REMOVE FROM WATCHED',
+  // },
+  // queueBtn: {
+  //   uk: 'Додати до черги',
+  //   en: 'Add to queue',
+  // },
+  // removeQueueBtn: {
+  //   uk: 'Прибрати з черги',
+  //   en: 'Remove from Watched',
+  // },
 };
 checkLocalStorageHash();
 
@@ -145,6 +153,7 @@ export function changeLanguage() {
   }
   document.querySelector('title').innerHTML = langArr['webTitle'][hash];
   const searchBar = document.querySelector('.inpt-js');
+
   // ? Меняет на домашней странице placeholder в input ?
   if (searchBar) {
     searchBar.placeholder = langArr['movieSearch'][hash];
@@ -158,3 +167,15 @@ export function changeLanguage() {
     }
   }
 }
+// const addToWatchedBtn = document.querySelector('.js-watched');
+
+// export function onRemoveWatchedBtn() {
+//   addToWatchedBtn.innerHTML = langArr['removeWatchedBtn'][hash];
+// }
+// export function onAddWatchBtn() {
+//   addToWatchedBtn.innerHTML = langArr['watchedBtn'][hash];
+
+// }
+// export function onRemoveQueueBtn() {
+//   const addToQueue = document.querySelector('.js-queue');
+// }
