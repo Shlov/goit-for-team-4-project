@@ -1,5 +1,4 @@
 .header {
-  
   height: 230px;
   max-width: 100%;
   margin-left: auto;
@@ -40,7 +39,6 @@
 }
 
 .header__container {
-  
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -224,7 +222,6 @@
   justify-content: center;
 
   @media screen and (min-width: 768px) {
-    
     right: 94px;
   }
 }
@@ -237,6 +234,7 @@
   height: 20px;
   background: #ff001b;
   border-radius: 30px;
+  cursor: pointer;
 }
 
 .theme__container .toggle .toggle-button {
@@ -245,10 +243,16 @@
   left: 2px;
   width: 16px;
   height: 16px;
-  background: var(--cl-white);
+  background: white;
   border-radius: 50%;
-  cursor: pointer;
   transition: 0.3s;
+}
+.theme__container .toggle__light {
+  transition: background-color 300ms;
+  background-color: black;
+  .toggle-button {
+    left: 20px;
+  }
 }
 
 .theme__container .theme__dark {

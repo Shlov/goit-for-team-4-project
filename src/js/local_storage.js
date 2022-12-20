@@ -142,5 +142,3 @@ export function addQueueListActive(id) {
   //   btnAddToWatch.classList.remove('js-watched--active');
   //   btnAddToQueue.classList.add('js-watched--active');
 }
-
-
