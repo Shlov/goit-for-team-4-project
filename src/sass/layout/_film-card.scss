@@ -69,7 +69,7 @@
   font-size: 12px;
   line-height: calc(16 / 12);
   color: #ff6b08;
-  text-transform: uppercase;
+  // text-transform: uppercase;
   @include mq(tab) {
     line-height: calc(16 / 12);
   }
