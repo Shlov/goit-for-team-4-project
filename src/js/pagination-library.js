@@ -2,10 +2,35 @@
 import createTypicalPaginationNavigation from './pagination-create-typical-nav';
 import createMobilePaginationNavigation from './pagination-create-mobile-nav';
 import { load } from './local_storage';
-console.log("load", load());
+// console.log("load", load('queue'));
+// console.log("load", load('watch'));
+
 // Link on HTML / DOM elements
 const paginationRef = document.querySelector('.js-pagination-library');
 const imageGallaryRef = document.querySelector('.js-gallery-library');
+
+let objArrayData = {
+  
+}
+
+onLoadQueue();
+
+
+
+console.log(objArrayData);
+
+function onLoadQueue() {
+  const queue = load('queue');
+  const numQueue = queue.length;
+  const allPages = Math.ceil(numQueue / 20);
+  for (let idx = 0; idx < allPages; idx++) {
+    let portion = queue.slice((20 * idx), (20 * (idx + 1)));
+    console.log(portion)
+    objArrayData.`p${idx}` = portion;    
+  }
+}
+
+console.log(objArrayData);
 
 // Support pagination data
 let paginationData = {
@@ -13,10 +38,6 @@ let paginationData = {
   totalPages: 0,
 };
 let paginationSource = [];
-
-export function detectedURLForPagination(url) {
-  paginationURL = url;
-}
 
 export function obtainFetchDataForPagination(data) {
   let paginationPAGE = data.page;
@@ -100,15 +121,3 @@ function onPaginationNavigationClick(evt) {
   }
 }
 
-// Fetch function for pagination
-async function paginationFetch(urlFetch, num) {
-  try {
-    let firstIndex = urlFetch.indexOf('page=') + 5;
-    let clipStr = urlFetch.slice(0, firstIndex);
-    const url = `${clipStr + num}`;
-    const response = await axios.get(url);
-    return response.data;
-  } catch (error) {
-    console.log(error);
-  }
-}
