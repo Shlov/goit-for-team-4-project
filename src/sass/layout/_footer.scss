@@ -21,8 +21,9 @@
 }
 
 .developers {
-  cursor: pointer;
-  text-decoration: underline;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: 300ms, linear;
 
   &:hover,
   &:focus {
