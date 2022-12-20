@@ -8,6 +8,27 @@ const newData = new newsApiService();
 const cardContainer = document.querySelector('.modal-window');
 const card = document.querySelector('.film-list');
 const modal = document.querySelector('.modal-backdrop');
+const scrollController = {
+  scrollPosition: 0,
+  disabledScroll() {
+    scrollController.scrollPosition = window.scrollY;
+    document.body.style.cssText = `
+      overflow: hidden;
+      position: fixed;
+      top: -${scrollController.scrollPosition}px;
+      left: 0;
+      height: 100vh;
+      width: 100vw;
+      padding-right: ${window.innerWidth - document.body.offsetWidth}px
+    `;
+    document.documentElement.style.scrollBehavior = 'unset';
+  },
+  enabledScroll() {
+    document.body.style.cssText = '';
+    window.scroll({ top: scrollController.scrollPosition });
+    document.documentElement.style.scrollBehavior = '';
+  },
+};
 
 if (card) {
   card.addEventListener('click', onOpenModal);
@@ -41,11 +62,13 @@ function openModal() {
   // Тут бы спинер добавить
   setTimeout(() => {
     modal.classList.remove('is-hidden');
+    scrollController.disabledScroll();
   }, 300);
 }
 
 function onCloseModal() {
   modal.classList.add('is-hidden');
+  scrollController.enabledScroll();
   cardContainer.innerHTML = '';
 }
 
