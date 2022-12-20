@@ -19,9 +19,12 @@
 }
 
 .card {
-
-
   @include card-item();
+
+  @media screen and (min-width: 767px) {
+    display: flex;
+    justify-content: center;
+  }
 
   @media screen and (min-width: 768px) {
     @include card-item($card-item: 2, $card-gap: 32px);
