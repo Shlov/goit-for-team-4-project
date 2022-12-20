@@ -1,6 +1,6 @@
-import newsApiService from './fetch';
+import newsApiService from './fetch'
+import { exportIdToLocalStorage } from './local_storage';
 import { changeLanguage } from './switchLanguage';
-import { test } from './local_storage';
 import { murkupMovie } from './markupModal';
 
 const newData = new newsApiService();
@@ -29,7 +29,7 @@ function onOpenModal(event) {
       closeBtn.addEventListener('click', onCloseModal);
       document.addEventListener('keydown', onEscBtn);
       document.addEventListener('click', onBackDrop);
-      test(data);
+      exportIdToLocalStorage(data);
     });
   }
 }
