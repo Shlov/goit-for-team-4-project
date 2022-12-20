@@ -3,16 +3,35 @@ import { load } from './local_storage';
 import newsApiService from './fetch';
 import { addListenerBtnYouTube } from './trailer';
 
-// renderSavedFilms('watch');
+renderSavedFilms('watch');
 
 const watchedButton = document.querySelector('.btn-watch');
 const queueButton = document.querySelector('.btn-queue');
-const galleryEl = document.querySelector('.js-gallery');
+const galleryEl = document.querySelector('.film-list');
 const noFilmsMessage = document.querySelector('.alert__message');
 const ApiService = new newsApiService();
 
 watchedButton.addEventListener('click', handleClickWatched);
 queueButton.addEventListener('click', handleClickQueue);
+
+// Проверка состояния кнопок watch и queue
+function addWatchListActive() {
+  if (!watchedButton.classList.contains('active')) {
+    watchedButton.classList.add('active');
+    queueButton.classList.contains('active')
+      ? queueButton.classList.remove('active')
+      : null;
+  }
+}
+
+function addQueueListActive() {
+  if (!queueButton.classList.contains('active')) {
+    queueButton.classList.add('active');
+    watchedButton.classList.contains('active')
+      ? watchedButton.classList.remove('active')
+      : null;
+  }
+}
 
 // Отрисовка фильмов из списка watch
 function handleClickWatched() {
@@ -49,7 +68,7 @@ function handleClickWatched() {
   setTimeout(addListenerBtnYouTube, 500);
 }
 
-// // Отрисовка фильмов из списка watch
+// // Отрисовка фильмов из списка queue
 function handleClickQueue() {
   cleanHTML();
   addQueueListActive();
@@ -84,36 +103,18 @@ function handleClickQueue() {
   setTimeout(addListenerBtnYouTube, 500);
 }
 
-// Проверка состояния кнопок watch и queue
-function addWatchListActive() {
-  if (!watchedButton.classList.contains('active')) {
-    watchedButton.classList.add('active');
-    queueButton.classList.contains('active')
-      ? queueButton.classList.remove('active')
-      : null;
-  }
-}
-
-function addQueueListActive() {
-  if (!queueButton.classList.contains('active')) {
-    queueButton.classList.add('active');
-    watchedButton.classList.contains('active')
-      ? watchedButton.classList.remove('active')
-      : null;
-  }
-}
-
 // Рендер сохраненных фильмов
-// function renderSavedFilms(key) {
-//   cleanHTML();
-//   const addedFilms = localStorage.getItem(key);
-//   if (addedFilms && addedFilms.length > 0) {
-//     renderGalleryFilms(addedFilms);
-//     noFilmsMessage.classList.add('visually-hidden');
-//   } else {
-//     noFilmsMessage.classList.remove('visually-hidden');
-//   }
-// }
+
+function renderSavedFilms(key) {
+  cleanHTML();
+  const addedFilms = load(key);
+  if (addedFilms && addedFilms.length > 0) {
+    renderGalleryFilms(addedFilms);
+    noFilmsMessage.classList.add('visually-hidden');
+  } else {
+    noFilmsMessage.classList.remove('visually-hidden');
+  }
+}
 
 // Очистка страницы
 function cleanHTML() {
