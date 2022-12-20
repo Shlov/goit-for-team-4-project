@@ -1,5 +1,4 @@
 .header {
-  
   height: 230px;
   max-width: 100%;
   margin-left: auto;
@@ -40,7 +39,7 @@
 }
 
 .header__container {
-  
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -51,11 +50,6 @@
     margin-bottom: 46px;
   }
 }
-
-// .nav {
-//   display: flex;
-//   justify-content: end;
-// }
 
 .nav__list {
   font-family: var(--main-font);
@@ -79,6 +73,7 @@
     padding-top: 49px;
   }
 }
+
 .nav__link--current {
   position: relative;
 
@@ -223,9 +218,16 @@
   align-items: center;
   justify-content: center;
 
+  @media screen and (max-width: 767px) {
+    right: 95px;
+  }
+
   @media screen and (min-width: 768px) {
-    
-    right: 94px;
+    right: 130px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    right: 115px;
   }
 }
 
@@ -233,19 +235,20 @@
   position: absolute;
   top: 0;
   left: 0;
-  width: 40px;
+  width: 35px;
   height: 20px;
-  background: #ff001b;
-  border-radius: 30px;
+  background: rgba(162, 40, 40, 0.808);
+  border-radius: 30px; 
 }
 
 .theme__container .toggle .toggle-button {
   position: absolute;
-  top: 1px;
+  top: 2px;
   left: 2px;
   width: 16px;
   height: 16px;
-  background: var(--cl-white);
+  background: linear-gradient(to bottom, #444, #222);
+
   border-radius: 50%;
   cursor: pointer;
   transition: 0.3s;
@@ -254,7 +257,7 @@
 .theme__container .theme__dark {
   position: absolute;
   top: 4px;
-  left: 42px;
+  left: 40px;
   font-family: var(--main-font);
   font-size: 10px;
   line-height: calc(12 / 10);
