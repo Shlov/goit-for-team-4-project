@@ -74,8 +74,7 @@
   font-size: 12px;
   line-height: calc(16 / 12);
   color: #FF6B08;
-  text-transform: uppercase;
-    @include mq(tab) {
+     @include mq(tab) {
         line-height: calc(16 / 12);
       }
     
@@ -100,6 +99,6 @@ display: none;
   outline: none;
  background-image: url(../..//..//src/images/icons8-youtube-play.svg);
   background-color: initial;
-// top: 50%;
+
 //   left: 50%;
 }
