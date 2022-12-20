@@ -6,3 +6,4 @@ import './js/render-top-films';
 import './js/scroll';
 import './js/trailer'
 import './js/switchLanguage'
+import './js/for-teams';

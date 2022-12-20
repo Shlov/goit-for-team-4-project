@@ -20,7 +20,7 @@ export function renderGalleryFilms(cards) {
         vote_average,
       } = card;
       return `<li class="card card-js" data-id="${id}"> <div>
-    <button data-id="${id}" class="button-youtube"></button>
+    <button data-id="${id}" class="button-youtube" type="button" aria-label="watch movie trailer"></button>
   </div><div class="card__wrap">
       <img class="card__img" src="https://image.tmdb.org/t/p/w500${poster_path}" alt="${original_title}" width="395" height="574">
       <h3 class="card__name lng-cardName">${original_title}</h3>
