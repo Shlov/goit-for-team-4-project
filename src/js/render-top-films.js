@@ -1,6 +1,5 @@
 import newsApiService from './fetch';
 import axios from 'axios';
-export { renderGalleryFilms };
 import { addListenerBtnYouTube } from './trailer';
 
 const ApiService = new newsApiService();
@@ -13,7 +12,7 @@ const refs = {
   card: document.querySelector('.film-list'),
 };
 
-export function change (genresInfo, genre_ids) {
+export function changeGenre (genresInfo, genre_ids) {
   const genrArrey = []
   for (const genre_id of genre_ids) {
     for (const genrInfo of genresInfo) {
@@ -25,8 +24,7 @@ export function change (genresInfo, genre_ids) {
   return genrArrey.join(', ')
 }
 
-
-function renderGalleryFilms(cards) {
+export function renderGalleryFilms(cards) {
   const markup = cards
     .map(card => {
       const {
@@ -46,28 +44,16 @@ function renderGalleryFilms(cards) {
         <button data-id="${id}" class="button-youtube"></button>
       </div>
       <div class="card__wrap">
-        <img
-          class="card__img"
-          src="https://image.tmdb.org/t/p/w500${poster_path}"
-          alt="${original_title}"
-          width="395"
-          height="574"
-        />
-        <h3 class="card__name">${title}</h3>
-        <p class="card__info">
-          ${change (genresInfo, genre_ids)} | ${
-        release_date.split('-')[0]
-      }<span class="card__rating">
-            ${vote_average}
-          </span>
-        </p>
-      </div>
-    </li>`;
-    })
-    .join('');
+      <img class="card__img" src='${poster_path
+        ? `https://image.tmdb.org/t/p/w500${poster_path}`
+        : 'https://ik.imagekit.io/rqegzjddo/no-poster-avalible.png?ik-sdk-version=javascript-1.4.3&updatedAt=1661766934161'}' alt="${original_title || title}" width="395" height="574">
+      <h3 class="card__name lng-cardName">${original_title || title}</h3>
+      <p class="card__info lng-cardInfo"> ${changeGenre(genresInfo, genre_ids)} | ${release_date.split('-')[0] || 'Coming soon'}<span class="card__rating"> ${vote_average} </span></p></div>
+  </li>` }).join('')
   refs.card.insertAdjacentHTML('beforeend', markup);
   addListenerBtnYouTube();
 }
+
 
 export const genresInfo = [
   { id: 28, name: 'Action' },
