@@ -45,6 +45,9 @@
   align-items: center;
   text-align: center;
   margin-bottom: 56px;
+  // margin-right: 20px;
+  // margin-left: 20px;
+  padding-top: 40px;
 
   @media screen and (min-width: 768px) {
     margin-bottom: 46px;
@@ -58,20 +61,24 @@
   line-height: calc(14 / 12);
 
   display: flex;
-
-  align-items: center;
+  gap: 40px;
+  align-items: baseline;
   text-align: center;
   text-transform: uppercase;
 
-  margin-right: 20px;
-  padding-top: 44px;
+  // margin-right: 20px;
+  // padding-top: 44px;
   color: var(--cl-white);
-  gap: 40px;
 
-  @media screen and (min-width: 768px) {
-    margin-right: 32px;
-    padding-top: 49px;
+  @media screen and (max-width: 340px) {
+    gap: 20px;
   }
+
+  // @media screen and (min-width: 768px) {
+  //   // margin-right: 32px;
+  //   // padding-top: 49px;
+
+  // }
 }
 
 .nav__link--current {
@@ -94,12 +101,13 @@
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 8px;
-  margin-left: 22px;
-  padding-top: 40px;
+
+  // margin-left: 22px;
+  // padding-top: 40px;
 
   @media screen and (min-width: 768px) {
-    margin-left: 32px;
+    // margin-left: 32px;
+    gap: 8px;
   }
 
   @media screen and (min-width: 1280px) {
@@ -109,16 +117,22 @@
 }
 
 .header__title {
-  opacity: 0;
-
-  @media screen and (min-width: 768px) {
-    opacity: 1;
-    font-family: var(--main-font);
-    font-weight: 500;
-    font-size: 30px;
-    line-height: calc(35 / 30);
-    color: var(--cl-white);
+  font-family: var(--main-font);
+  font-weight: 500;
+  font-size: 30px;
+  line-height: calc(35 / 30);
+  color: var(--cl-white);
+  @include mq(mob-only) {
+    & {
+      display: none;
+    }
   }
+  // opacity: 0;
+
+  // @media screen and (min-width: 768px) {
+  //   // opacity: 1;
+
+  // }
 }
 
 .header__search-form {
@@ -210,24 +224,24 @@
 
 .theme__container {
   position: absolute;
-  top: 45px;
-  right: 35px;
+  top: 40px;
+  right: 85px;
   transform: translate(-50%, -50%);
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
 
-  @media screen and (max-width: 767px) {
-    right: 95px;
-  }
+  // @media screen and (max-width: 767px) {
+  //   right: 100px;
+  // }
 
   @media screen and (min-width: 768px) {
-    right: 130px;
+    right: 100px;
   }
 
   @media screen and (min-width: 1280px) {
-    right: 115px;
+    right: 85px;
   }
 }
 
@@ -238,7 +252,7 @@
   width: 35px;
   height: 20px;
   background: rgba(162, 40, 40, 0.808);
-  border-radius: 30px; 
+  border-radius: 30px;
 }
 
 .theme__container .toggle .toggle-button {
@@ -259,8 +273,9 @@
   top: 4px;
   left: 40px;
   font-family: var(--main-font);
-  font-size: 10px;
-  line-height: calc(12 / 10);
+  font-size: 8px;
+  line-height: calc(12 / 8);
+  text-transform: uppercase;
   color: var(--cl-white);
   margin-left: 2px;
 }
