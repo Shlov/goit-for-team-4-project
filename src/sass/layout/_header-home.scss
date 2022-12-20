@@ -253,6 +253,7 @@
   height: 20px;
   background: rgba(162, 40, 40, 0.808);
   border-radius: 30px;
+  cursor: pointer;
 }
 
 .theme__container .toggle .toggle-button {
@@ -262,10 +263,15 @@
   width: 16px;
   height: 16px;
   background: linear-gradient(to bottom, #444, #222);
-
   border-radius: 50%;
-  cursor: pointer;
   transition: 0.3s;
+}
+.theme__container .toggle__light {
+  transition: background-color 300ms;
+  background-color: black;
+  .toggle-button {
+    left: 20px;
+  }
 }
 
 .theme__container .theme__dark {
