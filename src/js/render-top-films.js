@@ -13,6 +13,19 @@ const refs = {
   card: document.querySelector('.film-list'),
 };
 
+export function change (genresInfo, genre_ids) {
+  const genrArrey = []
+  for (const genre_id of genre_ids) {
+    for (const genrInfo of genresInfo) {
+      if (genrInfo.id === genre_id) {
+ genrArrey.push(genrInfo.name)
+      }
+    }
+  }
+  return genrArrey.join(', ')
+}
+
+
 function renderGalleryFilms(cards) {
   const markup = cards
     .map(card => {
@@ -42,7 +55,7 @@ function renderGalleryFilms(cards) {
         />
         <h3 class="card__name">${title}</h3>
         <p class="card__info">
-          ${genre_ids} | ${
+          ${change (genresInfo, genre_ids)} | ${
         release_date.split('-')[0]
       }<span class="card__rating">
             ${vote_average}
