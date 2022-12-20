@@ -1,16 +1,37 @@
-// import { getFromStorage } from '';
-// import { renderGalleryFilms } from './render-gallery-films';
+import { renderGalleryFilms } from './render-gallery-films';
 import { load } from './local_storage';
 import newsApiService from './fetch';
 import { addListenerBtnYouTube } from './trailer';
 
+renderSavedFilms('watch');
+
 const watchedButton = document.querySelector('.btn-watch');
 const queueButton = document.querySelector('.btn-queue');
-const galleryEl = document.querySelector('.gallery');
+const galleryEl = document.querySelector('.film-list');
+const noFilmsMessage = document.querySelector('.alert__message');
 const ApiService = new newsApiService();
 
 watchedButton.addEventListener('click', handleClickWatched);
 queueButton.addEventListener('click', handleClickQueue);
+
+// Проверка состояния кнопок watch и queue
+function addWatchListActive() {
+  if (!watchedButton.classList.contains('active')) {
+    watchedButton.classList.add('active');
+    queueButton.classList.contains('active')
+      ? queueButton.classList.remove('active')
+      : null;
+  }
+}
+
+function addQueueListActive() {
+  if (!queueButton.classList.contains('active')) {
+    queueButton.classList.add('active');
+    watchedButton.classList.contains('active')
+      ? watchedButton.classList.remove('active')
+      : null;
+  }
+}
 
 // Отрисовка фильмов из списка watch
 function handleClickWatched() {
@@ -47,8 +68,7 @@ function handleClickWatched() {
   setTimeout(addListenerBtnYouTube, 500);
 }
 
-
-// // Отрисовка фильмов из списка watch
+// // Отрисовка фильмов из списка queue
 function handleClickQueue() {
   cleanHTML();
   addQueueListActive();
@@ -83,22 +103,16 @@ function handleClickQueue() {
   setTimeout(addListenerBtnYouTube, 500);
 }
 
-// Проверка состояния кнопок watch и queue
-function addWatchListActive() {
-  if (!watchedButton.classList.contains('active')) {
-    watchedButton.classList.add('active');
-    queueButton.classList.contains('active')
-      ? queueButton.classList.remove('active')
-      : null;
-  }
-}
+// Рендер сохраненных фильмов
 
-function addQueueListActive() {
-  if (!queueButton.classList.contains('active')) {
-    queueButton.classList.add('active');
-    watchedButton.classList.contains('active')
-      ? watchedButton.classList.remove('active')
-      : null;
+function renderSavedFilms(key) {
+  cleanHTML();
+  const addedFilms = load(key);
+  if (addedFilms && addedFilms.length > 0) {
+    renderGalleryFilms(addedFilms);
+    noFilmsMessage.classList.add('visually-hidden');
+  } else {
+    noFilmsMessage.classList.remove('visually-hidden');
   }
 }
 
@@ -106,60 +120,3 @@ function addQueueListActive() {
 function cleanHTML() {
   galleryEl.innerHTML = '';
 }
-
-// const getFromStorage = key => {
-//   try {
-//     return JSON.parse(localStorage.getItem(key));
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
-
-// const refs = {
-//   queueButton: document.querySelector('.js-queue-button'),
-//   watchedButton: document.querySelector('.js-watched-button'),
-// };
-
-// refs.watchedButton.addEventListener('click', handleClickWatched);
-// refs.queueButton.addEventListener('click', handleClickQueue);
-
-// renderSavedFilms('watch');
-
-// function handleClickQueue() {
-//   renderSavedFilms('queue');
-//   removeDisabled(refs.watchedButton);
-//   setDisabled(refs.queueButton);
-//   refs.isWatchTabActive = false;
-// }
-
-// function handleClickWatched() {
-//   renderSavedFilms('watch');
-//   setDisabled(refs.watchedButton);
-//   removeDisabled(refs.queueButton);
-//   refs.isWatchTabActive = true;
-// }
-
-// function renderSavedFilms(name) {
-//   clearFilmList();
-//   const addedFilms = getFromStorage(name);
-//   if (addedFilms && addedFilms.length > 0) {
-//     renderGalleryFilms(addedFilms);
-//     refs.noFilmsMessage.classList.add('visually-hidden');
-//   } else {
-//     refs.noFilmsMessage.classList.remove('visually-hidden');
-//   }
-// }
-
-// function setDisabled(el) {
-//   el.setAttribute('disabled', '');
-//   el.classList.add('button-active');
-// }
-
-// function removeDisabled(el) {
-//   el.removeAttribute('disabled');
-//   el.classList.remove('button-active');
-// }
-
-// function clearFilmList() {
-//   refs.cardsContainer.innerHTML = '';
-// }

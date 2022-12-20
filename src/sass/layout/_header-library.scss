@@ -130,19 +130,21 @@
 
 .btn-watch {
     @extend %btn;
+    border-color: #000;
+    color: #000;
+    &.active{
+    background-color: var(--cl-accent);
     border-color: #fff;
-    color: #fff;
-    &.active {
-            background-color: var(--cl-accent);
-        }
+    color: #fff;    }
 }
 
 .btn-queue{
     @extend %btn;
-    border-color: #fff;
-    color: #fff;
+    border-color: #000;
+    color: #000;
     &.active{
-        background-color: var(--cl-accent);
-    }
+    background-color: var(--cl-accent);
+    border-color: #fff;
+    color: #fff;    }
 }
 
