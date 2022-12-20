@@ -30,7 +30,7 @@ function renderGalleryFilms(cards) {
       } = card;
       return `<li class="card card-js" data-id="${id}">
       <div>
-        <button data-id="${id}" class="button-youtube"></button>
+        <button data-id="${id}" class="button-youtube" type="button" aria-label="watch movie trailer"></button>
       </div>
       <div class="card__wrap">
         <img

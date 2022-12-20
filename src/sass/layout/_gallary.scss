@@ -95,8 +95,7 @@
   font-size: 12px;
   line-height: calc(16 / 12);
   color: #FF6B08;
-  text-transform: uppercase;
-
+ 
   @include mq(tab) {
     line-height: calc(16 / 12);
   }
