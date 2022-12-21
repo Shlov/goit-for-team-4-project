@@ -10,9 +10,12 @@ export function changeGenre (genresInfo, genre_ids) {
   for (const genre_id of genre_ids) {
     for (const genrInfo of genresInfo) {
       if (genrInfo.id === genre_id) {
- genrArrey.push(genrInfo.name)
+        genrArrey.push(genrInfo.name)
       }
     }
+  }
+  if (genrArrey.length > 3) {
+    return genrArrey.slice(0, 2).join(', ') + ', Other';
   }
   return genrArrey.join(', ')
 }
