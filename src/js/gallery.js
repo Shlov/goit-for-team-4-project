@@ -2,6 +2,7 @@ import { renderGalleryFilms } from './render-gallery-films';
 import { load } from './local_storage';
 import newsApiService from './fetch';
 import { addListenerBtnYouTube } from './trailer';
+import { onLoadLocalStrQuery } from './pagination-library';
 
 renderSavedFilms('watch');
 
@@ -11,70 +12,27 @@ const galleryEl = document.querySelector('.film-list');
 const noFilmsMessage = document.querySelector('.alert__message');
 const ApiService = new newsApiService();
 
-watchedButton.addEventListener('click', handleClickWatched);
-queueButton.addEventListener('click', handleClickQueue);
+watchedButton.addEventListener('click', firstQueryToWatched);
+queueButton.addEventListener('click', firstQueryToQueue);
 
-// Проверка состояния кнопок watch и queue
-function addWatchListActive() {
-  if (!watchedButton.classList.contains('active')) {
-    watchedButton.classList.add('active');
-    queueButton.classList.contains('active')
-      ? queueButton.classList.remove('active')
-      : null;
-  }
+
+function firstQueryToWatched() {
+  onLoadLocalStrQuery('watch');
+  addWatchListActive();
 }
 
-function addQueueListActive() {
-  if (!queueButton.classList.contains('active')) {
-    queueButton.classList.add('active');
-    watchedButton.classList.contains('active')
-      ? watchedButton.classList.remove('active')
-      : null;
-  }
+
+function firstQueryToQueue() {
+  onLoadLocalStrQuery('queue');
+  addQueueListActive();
 }
 
 // Отрисовка фильмов из списка watch
-function handleClickWatched() {
-  cleanHTML();
-  addWatchListActive();
+export function handleClick(data) {
+  cleanHTML();  
 
-  const arrWatched = load('watch');
+  const arrWatched = data;
   arrWatched.forEach(film => {
-    ApiService.getFilmDetails(film).then(data => {
-      const markup = `<li class="card card-js" data-id="${data.id}">
-      <div>
-        <button data-id="${data.id}" class="button-youtube"></button>
-      </div>
-      <div class="card__wrap">
-        <img
-          class="card__img"
-          src="https://image.tmdb.org/t/p/w500/${data.poster_path}"
-          alt="${data.original_title}"
-          width="395"
-          height="574"
-        />
-        <h3 class="card__name">${data.title}</h3>
-        <p class="card__info">
-          ${data.genres[0].name} | ${data.release_date}<span class="card__rating">
-            ${data.vote_average}
-          </span>
-        </p>
-      </div>
-    </li>`;
-      galleryEl.insertAdjacentHTML('beforeend', markup);
-    });
-  });
-
-  setTimeout(addListenerBtnYouTube, 500);
-}
-
-// // Отрисовка фильмов из списка queue
-function handleClickQueue() {
-  cleanHTML();
-  addQueueListActive();
-
-  const arrQueue = load('queue');
-  arrQueue.forEach(film => {
     ApiService.getFilmDetails(film).then(data => {
       const markup = `<li class="card card-js" data-id="${data.id}">
       <div>
