@@ -4,23 +4,23 @@ import newsApiService from './fetch';
 import { addListenerBtnYouTube } from './trailer';
 import { onLoadLocalStrQuery } from './pagination-library';
 
-renderSavedFilms('watch');
+// renderSavedFilms('watch');
+// console.log(renderSavedFilms('watch'))
 
 const watchedButton = document.querySelector('.btn-watch');
 const queueButton = document.querySelector('.btn-queue');
-const galleryEl = document.querySelector('.film-list');
+const galleryEl = document.querySelector('.js-gallery-library');
 const noFilmsMessage = document.querySelector('.alert__message');
 const ApiService = new newsApiService();
 
 watchedButton.addEventListener('click', firstQueryToWatched);
 queueButton.addEventListener('click', firstQueryToQueue);
 
-
+onLoadLocalStrQuery('watch');
 function firstQueryToWatched() {
   onLoadLocalStrQuery('watch');
   addWatchListActive();
 }
-
 
 function firstQueryToQueue() {
   onLoadLocalStrQuery('queue');
@@ -61,18 +61,41 @@ export function handleClick(data) {
   setTimeout(addListenerBtnYouTube, 500);
 }
 
-// Рендер сохраненных фильмов
-
-function renderSavedFilms(key) {
-  cleanHTML();
-  const addedFilms = load(key);
-  if (addedFilms && addedFilms.length > 0) {
-    renderGalleryFilms(addedFilms);
-    noFilmsMessage.classList.add('visually-hidden');
-  } else {
-    noFilmsMessage.classList.remove('visually-hidden');
+// Проверка состояния кнопок watch и queue
+function addWatchListActive() {
+  if (!watchedButton.classList.contains('active')) {
+    watchedButton.classList.add('active');
+    queueButton.classList.contains('active')
+      ? queueButton.classList.remove('active')
+      : null;
   }
 }
+
+function addQueueListActive() {
+  if (!queueButton.classList.contains('active')) {
+    queueButton.classList.add('active');
+    watchedButton.classList.contains('active')
+      ? watchedButton.classList.remove('active')
+      : null;
+  }
+}
+
+// // Рендер сохраненных фильмов
+// function renderSavedFilms(key) {
+//   // cleanHTML();
+  
+//   const addedFilms = load(key);
+//   if (addedFilms && addedFilms.length > 0) {
+//     console.log(key);
+
+//     renderGalleryFilms(addedFilms);
+    
+//     noFilmsMessage.classList.add('visually-hidden');
+//   } else {
+//     noFilmsMessage.classList.remove('visually-hidden');
+//   }
+  
+// }
 
 // Очистка страницы
 function cleanHTML() {
