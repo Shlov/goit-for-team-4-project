@@ -37,6 +37,8 @@
   width: 280px;
   height: 398px;
   margin-bottom: 8px;
+  border-radius: 5px;
+  object-fit: cover;
   @include mq(tab) {
     width: 336px;
     height: 455px;

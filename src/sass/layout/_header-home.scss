@@ -190,13 +190,13 @@
 .lang-list {
   position: absolute;
   top: 20px;
-  right: -11px;
+  right: -1x;
 
   display: flex;
   flex-direction: column;
   gap: 2px;
 
-  transition-property: opacity, top;
+  transition-property: opacity, bottom;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -207,11 +207,11 @@
     width: 60px;
   }
   &-show {
-    top: -20px;
+    bottom: -5px;
   }
 }
 .lang-list-ua {
-  right: -11px;
+  right: -1px;
 }
 .lang-list-uk {
   right: 6px;

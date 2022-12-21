@@ -5,7 +5,7 @@
     margin-left: auto;
     margin-right: auto;
     padding-top: 10px;
-    
+    outline: 2px solid black;
     
     @include mq(mob) {
         width: 480px;    
