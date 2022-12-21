@@ -1,6 +1,6 @@
 import './js/fetch';
 import './js/modal';
-import './js/pagination-fetch';
+// import './js/pagination-fetch';
 import './js/loader';
 // import './js/render-top-films';
 import './js/scroll';
