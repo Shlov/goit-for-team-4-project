@@ -68,7 +68,7 @@
 
   // margin-right: 20px;
   // padding-top: 44px;
-  color: var(--cl-white);
+  color: var(--cl-ivory);
 
   @media screen and (max-width: 340px) {
     gap: 20px;
@@ -121,7 +121,7 @@
   font-weight: 500;
   font-size: 30px;
   line-height: calc(35 / 30);
-  color: var(--cl-white);
+  color: var(--cl-ivory);
   @include mq(mob-only) {
     & {
       display: none;
@@ -141,7 +141,7 @@
   @include centered-flex;
 
   margin: auto;
-  border-bottom: 1px solid var(--cl-white);
+  border-bottom: 1px solid var(--cl-ivory);
 
   @media screen and (min-width: 768px) {
     width: 336px;
@@ -157,12 +157,12 @@
   border: none;
   outline: transparent;
   padding: 5px;
-  color: var(--cl-white);
+  color: var(--cl-ivory);
 
   &::placeholder {
     @include fonts;
 
-    color: var(--cl-white);
+    color: var(--cl-ivory);
   }
 }
 
@@ -175,7 +175,7 @@
 
 .form-icon {
   // fill: var(--cl-white);
-  color: var(--cl-white);
+  color: var(--cl-ivory);
 }
 .nav__item:last-child {
   position: relative;
@@ -190,13 +190,13 @@
 .lang-list {
   position: absolute;
   top: 20px;
-  right: -11px;
+  right: -1x;
 
   display: flex;
   flex-direction: column;
   gap: 2px;
 
-  transition-property: opacity, top;
+  transition-property: opacity, bottom;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
@@ -207,11 +207,11 @@
     width: 60px;
   }
   &-show {
-    top: -20px;
+    bottom: -5px;
   }
 }
 .lang-list-ua {
-  right: -11px;
+  right: -1px;
 }
 .lang-list-uk {
   right: 6px;
@@ -282,6 +282,6 @@
   font-size: 8px;
   line-height: calc(12 / 8);
   text-transform: uppercase;
-  color: var(--cl-white);
+  color: var(--cl-ivory);
   margin-left: 2px;
 }
