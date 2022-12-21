@@ -4,11 +4,16 @@ import andreyUrl from '../images/footer/teem-1.jpg';
 import antonUrl from '../images/footer/teem-2.jpg';
 import antoninaUrl from '../images/footer/teem-3.jpg';
 import VasylUrl from '../images/footer/teem-4.jpg';
-// import andreyUrl from '../images/footer/teem-1.jpg';
-// import andreyUrl from '../images/footer/teem-1.jpg';
-// import andreyUrl from '../images/footer/teem-1.jpg';
-// import andreyUrl from '../images/footer/teem-1.jpg';
-// import andreyUrl from '../images/footer/teem-1.jpg';
+import DmytriyPUrl from '../images/footer/teem-5.jpg';
+import RuslanUrl from '../images/footer/teem-7.jpg';
+import KaterynaUrl from '../images/footer/teem-6.jpg';
+import DenysUrl from '../images/footer/teem-8.jpg';
+import DmytriiUrl from '../images/footer/teem-9.jpg';
+import AnastasiiaUrl from '../images/footer/teem-10.jpg';
+import VitaliyUrl from '../images/footer/teem-11.jpg';
+import SergiiUrl from '../images/footer/teem-12.jpg';
+import VitaliySUrl from '../images/footer/teem-13.jpg';
+import VladislavUrl from '../images/footer/teem-14.jpg';
 
 import spriteUrl from '../images/symbol.svg';
 
@@ -23,7 +28,7 @@ const developers = [
     // 2
     {
         nameDev: 'Andrey',
-        surnameDev: 'Smit',
+        surnameDev: 'Kuznetsov',
         photo: `${andreyUrl}`,
         roleDev: 'Scrum master',
         gitDev: 'https://github.com/KuznecovAndrey7777777',
@@ -46,84 +51,84 @@ const developers = [
     },
     // 5
     {
-        nameDev: 'Andrey',
-        surnameDev: 'Smit',
-        photo: `${andreyUrl}`,
-        roleDev: 'Scrum master',
-        gitDev: 'https://github.com/KuznecovAndrey7777777',
+        nameDev: 'Dmytriy',
+        surnameDev: 'Pokhylenko',
+        photo: `${DmytriyPUrl}`,
+        roleDev: 'Frontend',
+        gitDev: 'https://github.com/PokhilenkoD?tab=repositories',
     },
     // 6
     {
-        nameDev: 'Andrey',
-        surnameDev: 'Smit',
-        photo: `${andreyUrl}`,
-        roleDev: 'Scrum master',
-        gitDev: 'https://github.com/KuznecovAndrey7777777',
+        nameDev: 'Ruslan',
+        surnameDev: 'Samoylenkoy',
+        photo: `${RuslanUrl}`,
+        roleDev: 'Frontend',
+        gitDev: 'https://github.com/ruslan-sem',
     },
     // 7
     {
-        nameDev: 'Andrey',
-        surnameDev: 'Smit',
-        photo: `${andreyUrl}`,
-        roleDev: 'Scrum master',
-        gitDev: 'https://github.com/KuznecovAndrey7777777',
+        nameDev: 'Antonova',
+        surnameDev: 'Kateryna',
+        photo: `${KaterynaUrl}`,
+        roleDev: 'Frontend',
+        gitDev: 'https://github.com/katya20220910',
     },
     // 8
     {
-        nameDev: 'Andrey',
-        surnameDev: 'Smit',
-        photo: `${andreyUrl}`,
-        roleDev: 'Scrum master',
-        gitDev: 'https://github.com/KuznecovAndrey7777777',
+        nameDev: 'Denys',
+        surnameDev: 'Tunyk',
+        photo: `${DenysUrl}`,
+        roleDev: 'Frontend',
+        gitDev: 'https://github.com/DenisTunyk',
     },
     // 9
     {
-        nameDev: 'Andrey',
-        surnameDev: 'Smit',
-        photo: `${andreyUrl}`,
-        roleDev: 'Scrum master',
-        gitDev: 'https://github.com/KuznecovAndrey7777777',
+        nameDev: 'Dmytrii',
+        surnameDev: 'Holiaka',
+        photo: `${DmytriiUrl}`,
+        roleDev: 'Frontend',
+        gitDev: 'https://github.com/holiaka',
     },
-    // // 10
-    // {
-    //     nameDev: 'Andrey',
-    //     surnameDev: 'Smit',
-    //     photo: `${andreyUrl}`,
-    //     roleDev: 'Scrum master',
-    //     gitDev: 'https://github.com/KuznecovAndrey7777777',
-    // },
-    // // 11
-    // {
-    //     nameDev: 'Andrey',
-    //     surnameDev: 'Smit',
-    //     photo: `${andreyUrl}`,
-    //     roleDev: 'Scrum master',
-    //     gitDev: 'https://github.com/KuznecovAndrey7777777',
-    // },
-    // // 12
-    // {
-    //     nameDev: 'Andrey',
-    //     surnameDev: 'Smit',
-    //     photo: `${andreyUrl}`,
-    //     roleDev: 'Scrum master',
-    //     gitDev: 'https://github.com/KuznecovAndrey7777777',
-    // },
-    // // 13
-    // {
-    //     nameDev: 'Andrey',
-    //     surnameDev: 'Smit',
-    //     photo: `${andreyUrl}`,
-    //     roleDev: 'Scrum master',
-    //     gitDev: 'https://github.com/KuznecovAndrey7777777',
-    // },
-    // // 14
-    // {
-    //     nameDev: 'Andrey',
-    //     surnameDev: 'Smit',
-    //     photo: `${andreyUrl}`,
-    //     roleDev: 'Scrum master',
-    //     gitDev: 'https://github.com/KuznecovAndrey7777777',
-    // },
+    // 10
+    {
+        nameDev: 'Anastasiia',
+        surnameDev: 'Hluhan',
+        photo: `${AnastasiiaUrl}`,
+        roleDev: 'Frontend',
+        gitDev: 'https://github.com/nastiglugan',
+    },
+    // 11
+    {
+        nameDev: 'Vitaliy',
+        surnameDev: 'Guivan',
+        photo: `${VitaliyUrl}`,
+        roleDev: 'Frontend',
+        gitDev: 'https://github.com/ventel90',
+    },
+    // 12
+    {
+        nameDev: 'Sergii',
+        surnameDev: 'Maitamal',
+        photo: `${SergiiUrl}`,
+        roleDev: 'Frontend',
+        gitDev: 'https://github.com/SergeyMaitamal7',
+    },
+    // 13
+    {
+        nameDev: 'Vitaliy',
+        surnameDev: 'Saburdo',
+        photo: `${VitaliySUrl}`,
+        roleDev: 'Frontend',
+        gitDev: 'https://github.com/VitaliySaburdo',
+    },
+    // 14
+    {
+        nameDev: 'Vladislav',
+        surnameDev: 'Ulianeev',
+        photo: `${VladislavUrl}`,
+        roleDev: 'Frontend',
+        gitDev: 'https://github.com/vladisulian',
+    },
 ];
 
 const markupTeamCard = developers
