@@ -1,10 +1,28 @@
 :root {
   /* colors */
   --cl-white: #ffffff;
+  --cl-ivory: 	#FFFFF0;
   --cl-almost-white: #fefefe;
   --cl-black: #000000;
   --cl-txt: #8c8c8c;
   --cl-secondary: #f7f7f7;
+  --cl-accent: #ff6b08;
+
+  /* fonts */
+  --main-font: 'Roboto', sans-serif;
+  /* size */
+
+  /* animat */
+  --animat: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.dark-theme {
+  /* colors */
+  --cl-white: black;
+  --cl-almost-white: #222222;
+  --cl-black: white;
+  --cl-txt: #8c8c8c;
+  --cl-secondary: #1b1b1e;
   --cl-accent: #ff6b08;
 
   /* fonts */

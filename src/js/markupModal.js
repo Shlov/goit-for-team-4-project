@@ -87,6 +87,6 @@ function imgRender(poster_path) {
   if (poster_path) {
     return `https://image.tmdb.org/t/p/w500${poster_path}`;
   }
-  return './src/images/modal/notFound.png';
+  return `https://upload.wikimedia.org/wikipedia/commons/c/c2/No_image_poster.png?20170513175923`;
 }
 export { murkupMovie };

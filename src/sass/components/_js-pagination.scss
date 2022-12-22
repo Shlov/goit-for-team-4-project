@@ -8,12 +8,12 @@
     height: 40px;
     padding: 0;
     margin: 0;
-    background-color: var(--cl-white);
+    background-color: white;
 
     display: flex;
     align-items: center;
-    justify-content: center;  
-    
+    justify-content: center;
+
     font-weight: 500;
     font-size: 12px;
     line-height: 1.33;
@@ -23,37 +23,38 @@
     border-color: var(--cl-white);
     border-style: none;
 
-    cursor: pointer;    
+    cursor: pointer;
     transition: background-color var(--animat), color var(--animat);
-    &--active{
+    &--active {
       &:hover {
-      background-color: var(--cl-accent);
-      color: var(--cl-white);
-      } 
-    }         
+        background-color: var(--cl-accent);
+        color: var(--cl-white);
+      }
+    }
 
     &--current {
       color: var(--cl-black);
-      background-color: #FF6B08;
+      background-color: #ff6b08;
       cursor: auto;
     }
 
-    &--block {      
+    &--block {
       background-color: var(--cl-secondary);
       color: rgb(80, 79, 79);
       cursor: auto;
     }
-  } 
-  
+  }
+
   &__span {
     width: 40px;
-
+    color: var(--cl-black);
     display: flex;
     justify-content: center;
     align-items: center;
   }
 }
 
-.fa-arrow-right, .fa-arrow-left{
+.fa-arrow-right,
+.fa-arrow-left {
   pointer-events: none;
 }

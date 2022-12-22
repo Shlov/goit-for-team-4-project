@@ -7,7 +7,10 @@
 }
 
 .film-list {
-  @include card-set();
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
 
   @media screen and (min-width: 768px) {
     @include card-set($card-gap: 32px);
@@ -19,7 +22,11 @@
 }
 
 .card {
-  @include card-item();
+  @media screen and (min-width: 767px) {
+    @include card-item();
+    display: flex;
+    justify-content: center;
+  }
 
   @media screen and (min-width: 768px) {
     @include card-item($card-item: 2, $card-gap: 32px);
