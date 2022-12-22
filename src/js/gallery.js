@@ -17,8 +17,8 @@ const galleryEl = document.querySelector('.js-gallery-library');
 const noFilmsMessage = document.querySelector('.alert__message');
 
 
-watchedButton.addEventListener('click', firstQueryToWatched);
-queueButton.addEventListener('click', firstQueryToQueue);
+watchedButton.addEventListener('click', handleClickWatched);
+queueButton.addEventListener('click', handleClickQueue);
 
 // <<<<<<< pagination-7
 firstQueryToWatched();
