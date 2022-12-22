@@ -10,12 +10,12 @@ const imageGallaryRef = document.querySelector('.js-gallery-library');
 
 // Support pagination data
 let paginationData = {
-  page: 0,
-  totalPages: 0,
+  page: 1,
+  totalPages: 1,
 };
 let objArrayData = [];
 
-export function onLoadLocalStrQuery(key) { 
+export function onLoadLocalStrQuery(key) {
   objArrayData = [];
   const queue = load(`${key}`);
   const numQueue = queue.length;
@@ -23,9 +23,9 @@ export function onLoadLocalStrQuery(key) {
   paginationData.page = 1;
   paginationData.totalPages = allPages;
   for (let idx = 0; idx < allPages; idx++) {
-    let portion = queue.slice((20 * idx), (20 * (idx + 1)));
-    console.log(portion)
+    let portion = queue.slice((20 * idx), (20 * (idx + 1)));    
     objArrayData.push(portion);
+    
     changeViewportAndData(paginationData.page, paginationData.totalPages);
     handleClick(objArrayData[0])
   }

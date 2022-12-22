@@ -1,8 +1,10 @@
-import { renderGalleryFilms } from './render-gallery-films';
-import { load } from './local_storage';
+// import { renderGalleryFilms } from './render-gallery-films';
+// import { load } from './local_storage';
+import { onLoadLocalStrQuery } from './pagination-library';
 import newsApiService from './fetch';
 import { addListenerBtnYouTube } from './trailer';
-import { onLoadLocalStrQuery } from './pagination-library';
+const ApiService = new newsApiService();
+
 
 // renderSavedFilms('watch');
 // console.log(renderSavedFilms('watch'))
@@ -13,16 +15,22 @@ const queueButton = document.querySelector('.btn-queue');
 // const galleryEl = document.querySelector('.gallery');
 const galleryEl = document.querySelector('.js-gallery-library');
 const noFilmsMessage = document.querySelector('.alert__message');
-const ApiService = new newsApiService();
+
 
 watchedButton.addEventListener('click', firstQueryToWatched);
 queueButton.addEventListener('click', firstQueryToQueue);
 
+// <<<<<<< pagination-7
+firstQueryToWatched();
+function firstQueryToWatched() {
+  onLoadLocalStrQuery('watch');
+// ======= pagination-7 main
 renderSavedFilms();
 
 // Отрисовка фильмов из списка watch
 function handleClickWatched() {
   cleanHTML();
+// >>>>>>> main
   addWatchListActive();
 
   const arrWatched = load('watch');
