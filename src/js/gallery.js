@@ -15,8 +15,8 @@ const galleryEl = document.querySelector('.js-gallery-library');
 const noFilmsMessage = document.querySelector('.alert__message');
 const ApiService = new newsApiService();
 
-watchedButton.addEventListener('click', firstQueryToWatched);
-queueButton.addEventListener('click', firstQueryToQueue);
+watchedButton.addEventListener('click', handleClickWatched);
+queueButton.addEventListener('click', handleClickQueue);
 
 renderSavedFilms();
 
