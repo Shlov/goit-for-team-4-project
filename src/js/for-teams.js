@@ -14,6 +14,7 @@ import VitaliyUrl from '../images/footer/teem-11.jpg';
 import SergiiUrl from '../images/footer/teem-12.jpg';
 import VitaliySUrl from '../images/footer/teem-13.jpg';
 import VladislavUrl from '../images/footer/teem-14.jpg';
+import OleksandrUrl from '../images/footer/teem-15.jpg';
 
 import spriteUrl from '../images/symbol.svg';
 
@@ -128,6 +129,14 @@ const developers = [
         photo: `${VladislavUrl}`,
         roleDev: 'Frontend',
         gitDev: 'https://github.com/vladisulian',
+    },
+    // 15
+    {
+        nameDev: 'Oleksandr',
+        surnameDev: 'Mandebura',
+        photo: `${OleksandrUrl}`,
+        roleDev: 'Frontend',
+        gitDev: 'https://github.com/B1salex',
     },
 ];
 
