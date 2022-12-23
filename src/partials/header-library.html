@@ -1,56 +1,67 @@
 <header class="header-library">
-  <nav class="header-library-nav container">
-    <div class="nav-logo">
-      <a class="nav-logo__item" href="index.html">
-        <svg width="24" height="24" aria-label="Логотип">
-          <use class="menu-button__menu" href="./images/symbol.svg#logo"></use>
-        </svg>
-      </a>
-      <a
-        class="nav-logo__item nav-logo-filmoteka lng-headerTitle"
-        href="index.html"
-        >Filmoteka</a
-      >
+  <div class="header__container hdr__contn-js container">
+    <nav class="header-library-nav container">
+      <div class="nav-logo">
+        <a class="nav-logo__item" href="index.html">
+          <svg width="24" height="24" aria-label="Логотип">
+            <use class="menu-button__menu" href="./images/symbol.svg#logo"></use>
+          </svg>
+        </a>
+        <a
+          class="nav-logo__item nav-logo-filmoteka lng-headerTitle"
+          href="index.html"
+          >Filmoteka</a
+        >
+      </div>
+      <ul class="nav-menu nav__lst-js">
+        <li class="list nav__item-js">
+          <a href="index.html" class="nav-menu__link lng-homepage">home</a>
+        </li>
+        <li class="list nav__item-js">
+          <a href="library.html" class="nav-menu__link active lng-myLibrary"
+            >my library</a
+          >
+        </li>
+        <!-- ? language ? -->
+        <li class="list nav__item nav__item-js">
+          <p
+            class="jsBgLangOpen nav-menu__link nav-menu__link-btn lng-languageChoose"
+          >
+            Language
+          </p>
+          <ul class="lang-list jsLangList lang-hidden">
+            <li class="lst">
+              <img
+                class="selected-lang-img jsUA"
+                alt="UA"
+                src="/src/images/header/UA.png"
+                width="35"
+                height="20"
+              />
+            </li>
+            <li class="lst">
+              <img
+                class="jsUK"
+                src="/src/images/header/UK.jpg"
+                alt="UK"
+                width="35"
+                height="20"
+              />
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="theme__container theme-js">
+      <div class="toggle toggle-js">
+        <div class="toggle-button toggle__btn-js"></div>
+      </div>
+      <div class="theme__dark dark-js">light</div>
     </div>
-    <ul class="nav-menu nav__lst-js">
-      <li class="list nav__item-js">
-        <a href="index.html" class="nav-menu__link lng-homepage">home</a>
-      </li>
-      <li class="list nav__item-js">
-        <a href="library.html" class="nav-menu__link active lng-myLibrary"
-          >my library</a
-        >
-      </li>
-      <!-- ? language ? -->
-      <li class="list nav__item nav__item-js">
-        <p
-          class="jsBgLangOpen nav-menu__link nav-menu__link-btn lng-languageChoose"
-        >
-          Language
-        </p>
-        <ul class="lang-list jsLangList lang-hidden">
-          <li class="lst">
-            <img
-              class="selected-lang-img jsUA"
-              alt="UA"
-              src="/src/images/header/UA.png"
-              width="100%"
-            />
-          </li>
-          <li class="lst">
-            <img
-              class="jsUK"
-              src="/src/images/header/UK.jpg"
-              alt="UK"
-              width="100%"
-            />
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
+  </div>
   <div class="btn-menu container">
-    <button class="btn-watch js-watched-button lng-watchBtn">watch</button>
-    <button class="btn-queue js-queue-button active lng-queue">queue</button>
+    <button class="btn-watch js-watched-button active lng-watchBtn">watch</button>
+    <button class="btn-queue js-queue-button lng-queue">queue</button>
   </div>
 </header>
