@@ -1,16 +1,10 @@
-import { renderGalleryFilms } from './render-gallery-films';
 import { load } from './local_storage';
 import newsApiService from './fetch';
 import { addListenerBtnYouTube } from './trailer';
-import { onLoadLocalStrQuery } from './pagination-library';
-
-// renderSavedFilms('watch');
-// console.log(renderSavedFilms('watch'))
+import { onOpenModal } from './modal';
 
 const watchedButton = document.querySelector('.btn-watch');
 const queueButton = document.querySelector('.btn-queue');
-
-// const galleryEl = document.querySelector('.gallery');
 const galleryEl = document.querySelector('.js-gallery-library');
 const noFilmsMessage = document.querySelector('.alert__message');
 const ApiService = new newsApiService();
@@ -18,7 +12,7 @@ const ApiService = new newsApiService();
 watchedButton.addEventListener('click', handleClickWatched);
 queueButton.addEventListener('click', handleClickQueue);
 
-renderSavedFilms();
+renderSavedFilms('watch');
 
 // Отрисовка фильмов из списка watch
 function handleClickWatched() {
@@ -71,14 +65,14 @@ function addQueueListActive() {
   }
 }
 
-
 // Очистка страницы
 function cleanHTML() {
   galleryEl.innerHTML = '';
 }
 
-function renderSavedFilms() {
-  const addedFilms = load('watch');
+function renderSavedFilms(localBaseList) {
+  const addedFilms = load(localBaseList);
+  console.log(addedFilms);
   if (addedFilms && addedFilms.length > 0) {
     addedFilms.forEach(film => {
       addWatchListActive();
@@ -115,58 +109,16 @@ function renderFilmLibrary(film) {
       </div>
     </li>`;
     galleryEl.insertAdjacentHTML('beforeend', markup);
+    openModalLibrary()
   });
 }
 
-// const getFromStorage = key => {
-//   try {
-//     return JSON.parse(localStorage.getItem(key));
-//   } catch (error) {
-//     console.error(error);
-//   }
-// };
 
-// const refs = {
-//   queueButton: document.querySelector('.js-queue-button'),
-//   watchedButton: document.querySelector('.js-watched-button'),
-// };
+function openModalLibrary() {
+  galleryEl.classList.add('film-list');
+  if (galleryEl) {
+    galleryEl.addEventListener('click', onOpenModal);
+  }
 
-// refs.watchedButton.addEventListener('click', handleClickWatched);
-// refs.queueButton.addEventListener('click', handleClickQueue);
-
-// renderSavedFilms('watch');
-
-// function handleClickQueue() {
-//   renderSavedFilms('queue');
-//   removeDisabled(refs.watchedButton);
-//   setDisabled(refs.queueButton);
-//   refs.isWatchTabActive = false;
-// }
-
-// function handleClickWatched() {
-//   renderSavedFilms('watch');
-//   setDisabled(refs.watchedButton);
-//   removeDisabled(refs.queueButton);
-//   refs.isWatchTabActive = true;
-// }
-
-// function renderSavedFilms(name) {
-//   clearFilmList();
-//   const addedFilms = getFromStorage(name);
-
-//   if (addedFilms && addedFilms.length > 0) {
-//     console.log(key);
-
-//     renderGalleryFilms(addedFilms);
-    
-//     noFilmsMessage.classList.add('visually-hidden');
-//   } else {
-//     noFilmsMessage.classList.remove('visually-hidden');
-//   }
-  
-// }
-
-// Очистка страницы
-function cleanHTML() {
-  galleryEl.innerHTML = '';
+ 
 }
