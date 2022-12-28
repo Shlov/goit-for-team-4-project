@@ -4,15 +4,16 @@
     padding-right: 20px;
     margin-left: auto;
     margin-right: auto;
-    padding-top: 10px;
+    // padding-top: 10px; - прохання перенести цю строку у контейнер своєї секції
+    // outline: 2px solid black;
     
-    
+
     @include mq(mob) {
         width: 480px;    
     }
     @include mq(mob-only)
     {
-        padding-top: 20px;
+        // padding-top: 20px; - прохання перенести цю строку у контейнер своєї секції
     }
 
     @include mq(tab) {

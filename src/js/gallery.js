@@ -1,84 +1,61 @@
-// import { getFromStorage } from '';
 // import { renderGalleryFilms } from './render-gallery-films';
-import { load } from './local_storage';
+// import { load } from './local_storage';
+import { onLoadLocalStrQuery } from './pagination-library';
 import newsApiService from './fetch';
 import { addListenerBtnYouTube } from './trailer';
+const ApiService = new newsApiService();
+
+
+// renderSavedFilms('watch');
+// console.log(renderSavedFilms('watch'))
 
 const watchedButton = document.querySelector('.btn-watch');
 const queueButton = document.querySelector('.btn-queue');
-const galleryEl = document.querySelector('.gallery');
-const ApiService = new newsApiService();
+
+// const galleryEl = document.querySelector('.gallery');
+const galleryEl = document.querySelector('.js-gallery-library');
+const noFilmsMessage = document.querySelector('.alert__message');
+
 
 watchedButton.addEventListener('click', handleClickWatched);
 queueButton.addEventListener('click', handleClickQueue);
 
+// <<<<<<< pagination-7
+firstQueryToWatched();
+function firstQueryToWatched() {
+  onLoadLocalStrQuery('watch');
+// ======= pagination-7 main
+renderSavedFilms();
+
 // Отрисовка фильмов из списка watch
 function handleClickWatched() {
   cleanHTML();
+// >>>>>>> main
   addWatchListActive();
 
   const arrWatched = load('watch');
   arrWatched.forEach(film => {
-    ApiService.getFilmDetails(film).then(data => {
-      const markup = `<li class="card card-js" data-id="${data.id}">
-      <div>
-        <button data-id="${data.id}" class="button-youtube"></button>
-      </div>
-      <div class="card__wrap">
-        <img
-          class="card__img"
-          src="https://image.tmdb.org/t/p/w500/${data.poster_path}"
-          alt="${data.original_title}"
-          width="395"
-          height="574"
-        />
-        <h3 class="card__name">${data.title}</h3>
-        <p class="card__info">
-          ${data.genres[0].name} | ${data.release_date}<span class="card__rating">
-            ${data.vote_average}
-          </span>
-        </p>
-      </div>
-    </li>`;
-      galleryEl.insertAdjacentHTML('beforeend', markup);
-    });
+    renderFilmLibrary(film);
   });
 
   setTimeout(addListenerBtnYouTube, 500);
 }
 
-
 // // Отрисовка фильмов из списка watch
 function handleClickQueue() {
-  cleanHTML();
-  addQueueListActive();
-
   const arrQueue = load('queue');
-  arrQueue.forEach(film => {
-    ApiService.getFilmDetails(film).then(data => {
-      const markup = `<li class="card card-js" data-id="${data.id}">
-      <div>
-        <button data-id="${data.id}" class="button-youtube"></button>
-      </div>
-      <div class="card__wrap">
-        <img
-          class="card__img"
-          src="https://image.tmdb.org/t/p/w500/${data.poster_path}"
-          alt="${data.original_title}"
-          width="395"
-          height="574"
-        />
-        <h3 class="card__name">${data.title}</h3>
-        <p class="card__info">
-          ${data.genres[0].name} | ${data.release_date}<span class="card__rating">
-            ${data.vote_average}
-          </span>
-        </p>
-      </div>
-    </li>`;
-      galleryEl.insertAdjacentHTML('beforeend', markup);
+  if (arrQueue && arrQueue.length > 0) {
+    cleanHTML();
+    addQueueListActive();
+
+    arrQueue.forEach(film => {
+      renderFilmLibrary(film);
     });
-  });
+
+    noFilmsMessage.classList.add('visually-hidden');
+  } else {
+    noFilmsMessage.classList.remove('visually-hidden');
+  }
 
   setTimeout(addListenerBtnYouTube, 500);
 }
@@ -102,9 +79,51 @@ function addQueueListActive() {
   }
 }
 
+
 // Очистка страницы
 function cleanHTML() {
   galleryEl.innerHTML = '';
+}
+
+function renderSavedFilms() {
+  const addedFilms = load('watch');
+  if (addedFilms && addedFilms.length > 0) {
+    addedFilms.forEach(film => {
+      addWatchListActive();
+
+      renderFilmLibrary(film);
+    });
+
+    noFilmsMessage.classList.add('visually-hidden');
+  } else {
+    noFilmsMessage.classList.remove('visually-hidden');
+  }
+}
+
+function renderFilmLibrary(film) {
+  ApiService.getFilmDetails(film).then(data => {
+    const markup = `<li class="card card-js" data-id="${data.id}">
+      <div>
+        <button data-id="${data.id}" class="button-youtube"></button>
+      </div>
+      <div class="card__wrap">
+        <img
+          class="card__img"
+          src="https://image.tmdb.org/t/p/w500/${data.poster_path}"
+          alt="${data.original_title}"
+          width="395"
+          height="574"
+        />
+        <h3 class="card__name">${data.title}</h3>
+        <p class="card__info">
+          ${data.genres[0].name} | ${data.release_date}<span class="card__rating">
+            ${data.vote_average}
+          </span>
+        </p>
+      </div>
+    </li>`;
+    galleryEl.insertAdjacentHTML('beforeend', markup);
+  });
 }
 
 // const getFromStorage = key => {
@@ -142,24 +161,20 @@ function cleanHTML() {
 // function renderSavedFilms(name) {
 //   clearFilmList();
 //   const addedFilms = getFromStorage(name);
+
 //   if (addedFilms && addedFilms.length > 0) {
+//     console.log(key);
+
 //     renderGalleryFilms(addedFilms);
-//     refs.noFilmsMessage.classList.add('visually-hidden');
+    
+//     noFilmsMessage.classList.add('visually-hidden');
 //   } else {
-//     refs.noFilmsMessage.classList.remove('visually-hidden');
+//     noFilmsMessage.classList.remove('visually-hidden');
 //   }
+  
 // }
 
-// function setDisabled(el) {
-//   el.setAttribute('disabled', '');
-//   el.classList.add('button-active');
-// }
-
-// function removeDisabled(el) {
-//   el.removeAttribute('disabled');
-//   el.classList.remove('button-active');
-// }
-
-// function clearFilmList() {
-//   refs.cardsContainer.innerHTML = '';
-// }
+// Очистка страницы
+function cleanHTML() {
+  galleryEl.innerHTML = '';
+}
