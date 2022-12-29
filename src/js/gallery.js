@@ -1,3 +1,4 @@
+
 import { load } from './local_storage';
 import newsApiService from './fetch';
 import { addListenerBtnYouTube } from './trailer';
@@ -7,16 +8,18 @@ const watchedButton = document.querySelector('.btn-watch');
 const queueButton = document.querySelector('.btn-queue');
 const galleryEl = document.querySelector('.js-gallery-library');
 const noFilmsMessage = document.querySelector('.alert__message');
-const ApiService = new newsApiService();
+
 
 watchedButton.addEventListener('click', handleClickWatched);
 queueButton.addEventListener('click', handleClickQueue);
+
 
 renderSavedFilms('watch');
 
 // Отрисовка фильмов из списка watch
 function handleClickWatched() {
   cleanHTML();
+// >>>>>>> main
   addWatchListActive();
 
   const arrWatched = load('watch');
