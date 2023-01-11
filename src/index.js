@@ -8,3 +8,4 @@ import './js/switch-theme';
 import './js/trailer';
 import './js/switchLanguage';
 import './js/for-teams';
+import './js/search';
